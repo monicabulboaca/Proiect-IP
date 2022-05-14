@@ -1,0 +1,11 @@
+C:\Users\monic\Desktop\IP\Proiect-IP\Proiect-IP\bin\Debug\Proiect-IP.exe.config
+C:\Users\monic\Desktop\IP\Proiect-IP\Proiect-IP\bin\Debug\Proiect-IP.exe
+C:\Users\monic\Desktop\IP\Proiect-IP\Proiect-IP\bin\Debug\Proiect-IP.pdb
+C:\Users\monic\Desktop\IP\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.csproj.AssemblyReference.cache
+C:\Users\monic\Desktop\IP\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.csproj.SuggestedBindingRedirects.cache
+C:\Users\monic\Desktop\IP\Proiect-IP\Proiect-IP\obj\Debug\Proiect_IP.Form1.resources
+C:\Users\monic\Desktop\IP\Proiect-IP\Proiect-IP\obj\Debug\Proiect_IP.Properties.Resources.resources
+C:\Users\monic\Desktop\IP\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.csproj.GenerateResource.cache
+C:\Users\monic\Desktop\IP\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.csproj.CoreCompileInputs.cache
+C:\Users\monic\Desktop\IP\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.exe
+C:\Users\monic\Desktop\IP\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.pdb
