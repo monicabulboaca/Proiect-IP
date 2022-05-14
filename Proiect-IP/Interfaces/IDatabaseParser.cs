@@ -8,6 +8,6 @@ namespace Proiect_IP.interfaces
 {
     interface IDatabaseParser
     {
-        void Parse(in string pathToDatabase, out List<string> fieldNames, out List<string> records);
+        void Parse(in string pathToDatabase, out List<string> fieldNames, out List<Row> records);
     }
 }

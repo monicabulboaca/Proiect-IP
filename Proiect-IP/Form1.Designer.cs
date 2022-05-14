@@ -35,12 +35,12 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridTable = new System.Windows.Forms.DataGridView();
             this.openFileButton = new System.Windows.Forms.Button();
             this.saveFileButton = new System.Windows.Forms.Button();
             this.quitEditsButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridTable)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -97,15 +97,16 @@
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
             this.viewToolStripMenuItem.Text = "Help";
             // 
-            // dataGridView1
+            // dataGridTable
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 55);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(747, 524);
-            this.dataGridView1.TabIndex = 2;
+            this.dataGridTable.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataGridTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridTable.Location = new System.Drawing.Point(12, 55);
+            this.dataGridTable.Name = "dataGridTable";
+            this.dataGridTable.RowHeadersWidth = 51;
+            this.dataGridTable.RowTemplate.Height = 24;
+            this.dataGridTable.Size = new System.Drawing.Size(785, 524);
+            this.dataGridTable.TabIndex = 2;
             // 
             // openFileButton
             // 
@@ -113,7 +114,7 @@
             this.openFileButton.Name = "openFileButton";
             this.openFileButton.Size = new System.Drawing.Size(94, 43);
             this.openFileButton.TabIndex = 3;
-            this.openFileButton.Text = "Load file";
+            this.openFileButton.Text = "Load";
             this.openFileButton.UseVisualStyleBackColor = true;
             this.openFileButton.Click += new System.EventHandler(this.openFileButton_Click);
             // 
@@ -133,7 +134,7 @@
             this.quitEditsButton.Name = "quitEditsButton";
             this.quitEditsButton.Size = new System.Drawing.Size(94, 46);
             this.quitEditsButton.TabIndex = 5;
-            this.quitEditsButton.Text = "Quit edits";
+            this.quitEditsButton.Text = "Quit";
             this.quitEditsButton.UseVisualStyleBackColor = true;
             this.quitEditsButton.Click += new System.EventHandler(this.quitEditsButton_Click);
             // 
@@ -145,14 +146,14 @@
             this.Controls.Add(this.quitEditsButton);
             this.Controls.Add(this.saveFileButton);
             this.Controls.Add(this.openFileButton);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridTable);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Database Manager";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,7 +168,7 @@
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem preferencesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridTable;
         private System.Windows.Forms.Button openFileButton;
         private System.Windows.Forms.Button saveFileButton;
         private System.Windows.Forms.Button quitEditsButton;

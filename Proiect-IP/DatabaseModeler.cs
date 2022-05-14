@@ -13,7 +13,7 @@ namespace Proiect_IP
         private List<string> _fields;
         private List<Row> _records; // ?? list<list<string>> ??
 
-        DatabaseModeler(in List<string> fields, in List<Row> data)
+        public DatabaseModeler(in List<string> fields, in List<Row> data)
         {
             this._fields = fields;
             this._records = data;

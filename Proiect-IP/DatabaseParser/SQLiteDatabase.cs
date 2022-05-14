@@ -9,7 +9,7 @@ namespace Proiect_IP.DatabaseParser
 {
     public class SQLiteDatabase : IDatabaseParser
     {
-        public void Parse(in string pathToDatabase, out List<string> fieldNames, out List<string> records)
+        public void Parse(in string pathToDatabase, out List<string> fieldNames, out List<Row> records)
         {
             throw new NotImplementedException();
         }

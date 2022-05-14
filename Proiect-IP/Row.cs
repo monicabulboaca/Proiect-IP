@@ -8,6 +8,11 @@ namespace Proiect_IP
 {
     public class Row
     {
-        protected List<string> _date;
+        public List<string> date;
+
+        public Row()
+        {
+            date = new List<string>();
+        }
     }
 }

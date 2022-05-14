@@ -10,9 +10,30 @@ namespace Proiect_IP.DatabaseParser
 {
     public class CSVDatabase : IDatabaseParser
     {
-        public void Parse(in string pathToDatabase, out List<string> fieldNames, out List<string> records)
+        public void Parse(in string pathToDatabase, out List<string> fieldNames, out List<Row> records)
         {
-            throw new NotImplementedException();
+            fieldNames = new List<string>();
+            records = new List<Row>();
+            StreamReader file = new StreamReader(pathToDatabase);
+            string firstLine = file.ReadLine();
+            string[] headers = firstLine.Split(',');
+            foreach (string header in headers)
+            {
+                fieldNames.Add(header);
+            }
+
+            string line;
+            while((line = file.ReadLine()) != null)
+            {
+                Row row = new Row();
+                
+                string[] fields = line.Split(',');
+                foreach(string field in fields)
+                {
+                    row.date.Add(field);
+                }
+                records.Add(row);   
+            }
         }
 
         public static bool IsCSV(in string filePath)
