@@ -11,34 +11,45 @@ namespace Proiect_IP
     public class DatabaseModeler : IDatabaseModeler
     {
         private List<string> _fields;
-        private List<Row> _records; // ?? list<list<string>> ??
+        private List<Row> _records; // ?? list<list<string>> ??, da chiar asa
 
-        public DatabaseModeler(in List<string> fields, in List<Row> data)
+        public DatabaseModeler(List<string> fields, List<Row> data)
         {
             this._fields = fields;
             this._records = data;
         }
 
-        public void AddData(in List<string> data)
+        public void AddData(Row data)
+        {
+            _records.Add(data);
+        }
+
+        public void DeleteData(Row data)
+        {
+            foreach (var row in _records)
+            {
+                if (data == row)
+                {
+                    _records.Remove(row);
+                    break;
+                }
+            }
+        }
+
+        public void ReadData(string filePath)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteData(in List<string> data)
+        public void UpdateData(Row oldData, Row newData)
         {
-            throw new NotImplementedException();
+            foreach (var row in _records)
+            {
+                if(row.Equals(oldData))
+                {
+                    row.Data = oldData.Data;
+                }
+            }
         }
-
-        public void ReadData(in string filePath)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateData(in List<string> oldData, in List<string> newData)
-        {
-            throw new NotImplementedException();
-        }
-
-
     }
 }

@@ -10,7 +10,7 @@ namespace Proiect_IP.DatabaseParser
 {
     public class CSVDatabase : IDatabaseParser
     {
-        public void Parse(in string pathToDatabase, out List<string> fieldNames, out List<Row> records)
+        public void Parse(string pathToDatabase, out List<string> fieldNames, out List<Row> records)
         {
             fieldNames = new List<string>();
             records = new List<Row>();
@@ -30,13 +30,13 @@ namespace Proiect_IP.DatabaseParser
                 string[] fields = line.Split(',');
                 foreach(string field in fields)
                 {
-                    row.date.Add(field);
+                    row.Data.Add(field);
                 }
                 records.Add(row);   
             }
         }
 
-        public static bool IsCSV(in string filePath)
+        public static bool IsCSV(string filePath)
         {
             Int32 no = 0;
 

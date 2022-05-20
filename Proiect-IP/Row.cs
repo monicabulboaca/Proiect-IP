@@ -6,13 +6,40 @@ using System.Threading.Tasks;
 
 namespace Proiect_IP
 {
-    public class Row
+    public class Row : IEquatable<Row>
     {
-        public List<string> date;
+        private List<string> _data;
 
         public Row()
         {
-            date = new List<string>();
+            _data = new List<string>();
+        }
+
+        public List<String> Data
+        {
+            get { return _data; }
+            set
+            {
+                _data.Clear();
+                _data = value;
+            }
+        }
+
+        public bool Equals(Row other)
+        {
+            if(other.Data.Count != _data.Count)
+            {
+                return false;
+            }
+
+            for (int i = 0; i < _data.Count; i++)
+            {
+                if(_data.ElementAt(i) != other.Data.ElementAt(i))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }

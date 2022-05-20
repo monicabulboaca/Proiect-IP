@@ -109,10 +109,10 @@ namespace Proiect_IP
 
             for (int i = 0; i < records.Count; i++)
             {
-                string[] row = new string[records[i].date.Count];
-                for(int j = 0; j < records[i].date.Count; j++)
+                string[] row = new string[records[i].Data.Count];
+                for(int j = 0; j < records[i].Data.Count; j++)
                 {
-                    row[j]= records[i].date[j]; 
+                    row[j]= records[i].Data[j]; 
                 }
                 this.dataGridTable.Rows.Add(row);
             }

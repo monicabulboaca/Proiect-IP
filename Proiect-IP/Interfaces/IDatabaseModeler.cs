@@ -9,9 +9,9 @@ namespace Proiect_IP.interfaces
 {
     interface IDatabaseModeler
     {
-        void AddData(in List<string> data);
-        void DeleteData(in List<string> data);
-        void ReadData(in string filePath); 
-        void UpdateData(in List<string> oldData, in List<string> newData);
+        void AddData(Row data);
+        void DeleteData(Row data);
+        void ReadData(string filePath); 
+        void UpdateData(Row oldData, Row newData);
     }
 }
