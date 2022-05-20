@@ -15,6 +15,15 @@ namespace Proiect_IP
             _data = new List<string>();
         }
 
+        public Row(int numberOfElements)
+        {
+            _data = new List<string>(numberOfElements + 1);
+            for (int i = 0; i < numberOfElements; i++)
+            {
+                _data.Add("");
+            }
+        }
+
         public List<String> Data
         {
             get { return _data; }

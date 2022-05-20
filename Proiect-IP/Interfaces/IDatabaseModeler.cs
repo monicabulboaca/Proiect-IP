@@ -12,6 +12,7 @@ namespace Proiect_IP.interfaces
         void AddData(Row data);
         void DeleteData(Row data);
         void ReadData(string filePath); 
-        void UpdateData(Row oldData, Row newData);
+        void UpdateData(int row, int column, string newData);
+        int NumberOfRows { get; }
     }
 }

@@ -19,6 +19,8 @@ namespace Proiect_IP
             this._records = data;
         }
 
+        public int NumberOfRows { get { return _records.Count; } }
+
         public void AddData(Row data)
         {
             _records.Add(data);
@@ -41,15 +43,13 @@ namespace Proiect_IP
             throw new NotImplementedException();
         }
 
-        public void UpdateData(Row oldData, Row newData)
+        public void UpdateData(int row, int column, string newData)
         {
-            foreach (var row in _records)
+            if(row > _records.Count-1)
             {
-                if(row.Equals(oldData))
-                {
-                    row.Data = oldData.Data;
-                }
+                _records.Add(new Row(_fields.Count));
             }
+            _records[row].Data[column] = newData;
         }
     }
 }

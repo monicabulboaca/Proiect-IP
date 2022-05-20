@@ -70,13 +70,20 @@ namespace Proiect_IP
                         break;
                 }
             }
-                
+
 
         }
 
         private void saveFileButton_Click(object sender, EventArgs e)
         {
-
+            for (int i = 0; i < dataGridTable.Rows.Count; i++)
+            {
+                for (int j = 0; j < fieldNames.Count; j++)
+                {
+                    _modeler.UpdateData(i, j, (string)dataGridTable[j, i].Value);
+                }
+            }
+            Console.WriteLine("asd");
         }
 
         private void quitEditsButton_Click(object sender, EventArgs e)
@@ -117,5 +124,7 @@ namespace Proiect_IP
                 this.dataGridTable.Rows.Add(row);
             }
         }
+
+        
     }
 }
