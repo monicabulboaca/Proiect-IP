@@ -8,6 +8,6 @@ namespace Proiect_IP.interfaces
 {
     interface IDatabaseSave
     {
-        void Save(string filename);
+        void Save(string filename, List<string> fieldNames,List<Row> records);
     }
 }

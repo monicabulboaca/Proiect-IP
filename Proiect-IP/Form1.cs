@@ -1,4 +1,5 @@
 ﻿using Proiect_IP.DatabaseParser;
+using Proiect_IP.DatabaseSavers;
 using Proiect_IP.interfaces;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ namespace Proiect_IP
         
         private IDatabaseParser _parser;
         private IDatabaseModeler _modeler;
+        private IDatabaseSave _saver;
 
         public Form1()
         {
@@ -61,6 +63,22 @@ namespace Proiect_IP
                         break;
                     case "json":
                         _parser = new JSONDatabase();
+                        _saver = new JSONSaver();
+                        try 
+                        { 
+                            _parser.Parse(filePath, out fieldNames, out records);
+                            _modeler = new DatabaseModeler(fieldNames, records);
+                            SetupDataGridView();
+                        }
+                        catch (Newtonsoft.Json.JsonReaderException ex)
+                        {
+                            MessageBox.Show(ex.Message, "Error!");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "Error!");
+                        }
+
                         break;
                     case "sql":
                         _parser = new SQLiteDatabase();

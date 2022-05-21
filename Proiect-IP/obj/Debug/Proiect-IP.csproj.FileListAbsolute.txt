@@ -9,3 +9,17 @@ C:\Users\monic\Desktop\IP\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.csproj.Gene
 C:\Users\monic\Desktop\IP\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.csproj.CoreCompileInputs.cache
 C:\Users\monic\Desktop\IP\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.exe
 C:\Users\monic\Desktop\IP\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.pdb
+F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\bin\Debug\Proiect-IP.exe.config
+F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\bin\Debug\Proiect-IP.exe
+F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\bin\Debug\Proiect-IP.pdb
+F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\bin\Debug\Newtonsoft.Json.dll
+F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\bin\Debug\Newtonsoft.Json.xml
+F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\obj\Debug\Proiect-IP.csproj.AssemblyReference.cache
+F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\obj\Debug\Proiect-IP.csproj.SuggestedBindingRedirects.cache
+F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\obj\Debug\Proiect_IP.Form1.resources
+F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\obj\Debug\Proiect_IP.Properties.Resources.resources
+F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\obj\Debug\Proiect-IP.csproj.GenerateResource.cache
+F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\obj\Debug\Proiect-IP.csproj.CoreCompileInputs.cache
+F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\obj\Debug\Proiect-IP.csproj.CopyComplete
+F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\obj\Debug\Proiect-IP.exe
+F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\obj\Debug\Proiect-IP.pdb
