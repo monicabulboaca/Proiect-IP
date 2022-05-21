@@ -13,33 +13,74 @@ namespace Proiect_IP
         private List<Row> records;
         
         private IDatabaseParser _parser;
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem fileToolStripMenuItem;
-        private ToolStripMenuItem openToolStripMenuItem;
-        private ToolStripMenuItem saveToolStripMenuItem;
-        private ToolStripMenuItem editToolStripMenuItem;
-        private ToolStripMenuItem preferencesToolStripMenuItem;
-        private ToolStripMenuItem viewToolStripMenuItem;
-        private Button quitEditsButton;
-        private Button saveFileButton;
-        private Button openFileButton;
-        private DataGridView dataGridTable;
         private IDatabaseModeler _modeler;
 
         public Form1()
         {
             InitializeComponent();
             this.dataGridTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridTable_CellClick);
-            this.dataGridTable.AllowUserToDeleteRows = false;
 
         }
 
         private void openFileButton_Click(object sender, EventArgs e)
         {
+            string filePath = string.Empty;
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = "c:\\";
+            openFileDialog.Filter = "csv files (*.csv)|*.csv|xml files (*.xml)|*.xml|json files (*.json)|*.json";
+            openFileDialog.FilterIndex = 1;
+
+            if(openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                filePath = openFileDialog.FileName;
+
+                // check extension
+                string fileExtension = filePath.Split('.')[1];
+
+                switch (fileExtension)
+                {
+                    case "csv":
+                        _parser = new CSVDatabase();
+                        if (CSVDatabase.IsCSV(filePath))
+                        {
+                            _parser.Parse(filePath, out fieldNames, out records);
+                            _modeler = new DatabaseModeler(fieldNames, records);
+                            SetupDataGridView();
+                        }
+                        else
+                            MessageBox.Show("Is not CSV");
+                        break;
+                    case "xml":
+                        _parser = new XMLDatabase();
+                        break;
+                    case "json":
+                        _parser = new JSONDatabase();
+                        break;
+                    case "sql":
+                        _parser = new SQLiteDatabase();
+                        break;
+                    default:
+                        _parser = new SQLiteDatabase();
+                        break;
+                }
+            }
 
         }
 
         private void saveFileButton_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridTable.Rows.Count; i++)
+            {
+                for (int j = 0; j < fieldNames.Count; j++)
+                {
+                    _modeler.UpdateData(i, j, (string)dataGridTable[j, i].Value);
+                }
+            }
+            Console.WriteLine("asd");
+        }
+
+        private void quitEditsButton_Click(object sender, EventArgs e)
         {
 
         }
@@ -58,14 +99,7 @@ namespace Proiect_IP
                     editRowForm.ShowDialog();
                     if(editRowForm.buttonOkClicked)
                     {
-                        string[] row = new string[records[e.RowIndex].Data.Count];
 
-                        for (int j = 0; j < records[e.RowIndex].Data.Count; j++)
-                        {
-                            row[j] = (string)editRowForm.GetDataGridViewRowEdit().Rows[0].Cells[j].Value;
-                            this.dataGridTable.Rows[e.RowIndex].Cells[j].Value = row[j];
-                        }
-                        editRowForm.Close();
                     }
                 }
                 else if (e.ColumnIndex == dataGridTable.ColumnCount - 2) // delete button
@@ -80,9 +114,7 @@ namespace Proiect_IP
                         this.dataGridTable.Rows[e.RowIndex].Selected = true;
                         this.dataGridTable.Rows.RemoveAt(e.RowIndex);
                     }
-
                 }
-                this.dataGridTable.AllowUserToDeleteRows = false;
                 this.dataGridTable.ReadOnly = true;
             }
         }
@@ -172,130 +204,6 @@ namespace Proiect_IP
             this.dataGridTable.Columns[this.dataGridTable.ColumnCount - 1].Width = 50;
         }
 
-        private void InitializeComponent()
-        {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.quitEditsButton = new System.Windows.Forms.Button();
-            this.saveFileButton = new System.Windows.Forms.Button();
-            this.openFileButton = new System.Windows.Forms.Button();
-            this.dataGridTable = new System.Windows.Forms.DataGridView();
-            this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridTable)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.editToolStripMenuItem,
-            this.viewToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(943, 28);
-            this.menuStrip1.TabIndex = 6;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openToolStripMenuItem,
-            this.saveToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
-            this.fileToolStripMenuItem.Text = "File";
-            // 
-            // openToolStripMenuItem
-            // 
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(128, 26);
-            this.openToolStripMenuItem.Text = "Open";
-            // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(128, 26);
-            this.saveToolStripMenuItem.Text = "Save";
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.preferencesToolStripMenuItem});
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
-            this.editToolStripMenuItem.Text = "Edit";
-            // 
-            // preferencesToolStripMenuItem
-            // 
-            this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
-            this.preferencesToolStripMenuItem.Text = "Preferences";
-            // 
-            // viewToolStripMenuItem
-            // 
-            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
-            this.viewToolStripMenuItem.Text = "Help";
-            // 
-            // quitEditsButton
-            // 
-            this.quitEditsButton.Location = new System.Drawing.Point(534, 519);
-            this.quitEditsButton.Name = "quitEditsButton";
-            this.quitEditsButton.Size = new System.Drawing.Size(94, 46);
-            this.quitEditsButton.TabIndex = 10;
-            this.quitEditsButton.Text = "Quit";
-            this.quitEditsButton.UseVisualStyleBackColor = true;
-            // 
-            // saveFileButton
-            // 
-            this.saveFileButton.Location = new System.Drawing.Point(401, 521);
-            this.saveFileButton.Name = "saveFileButton";
-            this.saveFileButton.Size = new System.Drawing.Size(94, 42);
-            this.saveFileButton.TabIndex = 9;
-            this.saveFileButton.Text = "Save as";
-            this.saveFileButton.UseVisualStyleBackColor = true;
-            // 
-            // openFileButton
-            // 
-            this.openFileButton.Location = new System.Drawing.Point(269, 522);
-            this.openFileButton.Name = "openFileButton";
-            this.openFileButton.Size = new System.Drawing.Size(94, 43);
-            this.openFileButton.TabIndex = 8;
-            this.openFileButton.Text = "Load";
-            this.openFileButton.UseVisualStyleBackColor = true;
-            // 
-            // dataGridTable
-            // 
-            this.dataGridTable.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dataGridTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridTable.Location = new System.Drawing.Point(12, 41);
-            this.dataGridTable.Name = "dataGridTable";
-            this.dataGridTable.RowHeadersWidth = 51;
-            this.dataGridTable.RowTemplate.Height = 24;
-            this.dataGridTable.Size = new System.Drawing.Size(919, 472);
-            this.dataGridTable.TabIndex = 7;
-            // 
-            // Form1
-            // 
-            this.ClientSize = new System.Drawing.Size(943, 591);
-            this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.quitEditsButton);
-            this.Controls.Add(this.saveFileButton);
-            this.Controls.Add(this.openFileButton);
-            this.Controls.Add(this.dataGridTable);
-            this.Name = "Form1";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridTable)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
-        }
+        
     }
 }
