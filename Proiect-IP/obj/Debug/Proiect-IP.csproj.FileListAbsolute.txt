@@ -23,3 +23,18 @@ F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\obj\Debug\Proiect-IP.csproj
 F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\obj\Debug\Proiect-IP.csproj.CopyComplete
 F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\obj\Debug\Proiect-IP.exe
 F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\obj\Debug\Proiect-IP.pdb
+C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\bin\Debug\Proiect-IP.exe.config
+C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\bin\Debug\Proiect-IP.exe
+C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\bin\Debug\Proiect-IP.pdb
+C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\bin\Debug\Newtonsoft.Json.dll
+C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\bin\Debug\Newtonsoft.Json.xml
+C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.csproj.AssemblyReference.cache
+C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.csproj.SuggestedBindingRedirects.cache
+C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\obj\Debug\Proiect_IP.Form1.resources
+C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\obj\Debug\Proiect_IP.Properties.Resources.resources
+C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.csproj.GenerateResource.cache
+C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.csproj.CoreCompileInputs.cache
+C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.csproj.CopyComplete
+C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.exe
+C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.pdb
+C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\obj\Debug\Proiect_IP.EditRowForm.resources

@@ -105,12 +105,12 @@
             this.dataGridTable.Name = "dataGridTable";
             this.dataGridTable.RowHeadersWidth = 51;
             this.dataGridTable.RowTemplate.Height = 24;
-            this.dataGridTable.Size = new System.Drawing.Size(785, 524);
+            this.dataGridTable.Size = new System.Drawing.Size(919, 472);
             this.dataGridTable.TabIndex = 2;
             // 
             // openFileButton
             // 
-            this.openFileButton.Location = new System.Drawing.Point(816, 85);
+            this.openFileButton.Location = new System.Drawing.Point(294, 537);
             this.openFileButton.Name = "openFileButton";
             this.openFileButton.Size = new System.Drawing.Size(94, 43);
             this.openFileButton.TabIndex = 3;
@@ -120,17 +120,17 @@
             // 
             // saveFileButton
             // 
-            this.saveFileButton.Location = new System.Drawing.Point(816, 152);
+            this.saveFileButton.Location = new System.Drawing.Point(414, 537);
             this.saveFileButton.Name = "saveFileButton";
             this.saveFileButton.Size = new System.Drawing.Size(94, 42);
             this.saveFileButton.TabIndex = 4;
-            this.saveFileButton.Text = "Save ";
+            this.saveFileButton.Text = "Save as";
             this.saveFileButton.UseVisualStyleBackColor = true;
             this.saveFileButton.Click += new System.EventHandler(this.saveFileButton_Click);
             // 
             // quitEditsButton
             // 
-            this.quitEditsButton.Location = new System.Drawing.Point(816, 221);
+            this.quitEditsButton.Location = new System.Drawing.Point(535, 533);
             this.quitEditsButton.Name = "quitEditsButton";
             this.quitEditsButton.Size = new System.Drawing.Size(94, 46);
             this.quitEditsButton.TabIndex = 5;

@@ -1,15 +1,8 @@
 ﻿using Proiect_IP.DatabaseParser;
-using Proiect_IP.DatabaseSavers;
 using Proiect_IP.interfaces;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proiect_IP
@@ -21,11 +14,11 @@ namespace Proiect_IP
         
         private IDatabaseParser _parser;
         private IDatabaseModeler _modeler;
-        private IDatabaseSave _saver;
 
         public Form1()
         {
             InitializeComponent();
+            this.dataGridTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridTable_CellClick);
 
         }
 
@@ -36,7 +29,7 @@ namespace Proiect_IP
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.InitialDirectory = "c:\\";
             openFileDialog.Filter = "csv files (*.csv)|*.csv|xml files (*.xml)|*.xml|json files (*.json)|*.json";
-            openFileDialog.FilterIndex = 2;
+            openFileDialog.FilterIndex = 1;
 
             if(openFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -63,22 +56,6 @@ namespace Proiect_IP
                         break;
                     case "json":
                         _parser = new JSONDatabase();
-                        _saver = new JSONSaver();
-                        try 
-                        { 
-                            _parser.Parse(filePath, out fieldNames, out records);
-                            _modeler = new DatabaseModeler(fieldNames, records);
-                            SetupDataGridView();
-                        }
-                        catch (Newtonsoft.Json.JsonReaderException ex)
-                        {
-                            MessageBox.Show(ex.Message, "Error!");
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message, "Error!");
-                        }
-
                         break;
                     case "sql":
                         _parser = new SQLiteDatabase();
@@ -88,7 +65,6 @@ namespace Proiect_IP
                         break;
                 }
             }
-
 
         }
 
@@ -109,12 +85,82 @@ namespace Proiect_IP
 
         }
 
+        private void dataGridTable_CellClick(Object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            {
+                if (e.ColumnIndex == dataGridTable.ColumnCount - 1) // edit button
+                {
+                    this.dataGridTable.ReadOnly = false;
+                    EditRowForm editRowForm = new EditRowForm();
+                    SetupDataGridViewRowEdit(editRowForm, e);
+                    editRowForm.ShowDialog();
+                    if(editRowForm.OkClicked())
+                    {
+                        string[] row = new string[records[e.RowIndex].Data.Count];
+
+                        for (int j = 0; j < records[e.RowIndex].Data.Count; j++)
+                        {
+                            row[j] = records[e.RowIndex].Data[j];
+                        }
+                        this.dataGridTable.Rows.Add(row);
+                    }
+                }
+                else if (e.ColumnIndex == dataGridTable.ColumnCount - 2) // delete button
+                {
+                    string message = "Sunteti sigur ca vreti sa stergeti randul?";
+                    string title = "Stergere rand";
+                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                    DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        this.dataGridTable.AllowUserToDeleteRows = true;
+                        this.dataGridTable.Rows[e.RowIndex].Selected = true;
+                        this.dataGridTable.Rows.RemoveAt(e.RowIndex);
+                    }
+                }
+                this.dataGridTable.ReadOnly = true;
+            }
+        }
+
+        private void SetupDataGridViewRowEdit(EditRowForm form, DataGridViewCellEventArgs e)
+        {
+            form.GetDataGridViewRowEdit().ColumnHeadersDefaultCellStyle.BackColor = Color.Navy;
+            form.GetDataGridViewRowEdit().ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            form.GetDataGridViewRowEdit().ColumnHeadersDefaultCellStyle.Font = new Font(this.dataGridTable.Font, FontStyle.Bold);
+            this.dataGridTable.ReadOnly = false;
+            form.GetDataGridViewRowEdit().AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            form.GetDataGridViewRowEdit().AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+            form.GetDataGridViewRowEdit().ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            form.GetDataGridViewRowEdit().CellBorderStyle = DataGridViewCellBorderStyle.Single;
+            form.GetDataGridViewRowEdit().GridColor = Color.Black;
+            form.GetDataGridViewRowEdit().RowHeadersVisible = false;
+            form.GetDataGridViewRowEdit().SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            form.GetDataGridViewRowEdit().AllowUserToDeleteRows = false;
+            form.GetDataGridViewRowEdit().Rows.Clear();
+            form.GetDataGridViewRowEdit().Columns.Clear();
+            form.GetDataGridViewRowEdit().ColumnCount = fieldNames.Count;
+            for (int i = 0; i < fieldNames.Count; i++)
+            {
+                form.GetDataGridViewRowEdit().Columns[i].Name = fieldNames[i];
+            }
+            string[] row = new string[records[e.RowIndex].Data.Count];
+
+            for (int j = 0; j < records[e.RowIndex].Data.Count; j++)
+            {
+                row[j] = records[e.RowIndex].Data[j];
+            }
+            form.GetDataGridViewRowEdit().Rows.Add(row);
+        }
+
         private void SetupDataGridView()
         {
             this.dataGridTable.ColumnHeadersDefaultCellStyle.BackColor = Color.Navy;
             this.dataGridTable.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             this.dataGridTable.ColumnHeadersDefaultCellStyle.Font = new Font(this.dataGridTable.Font, FontStyle.Bold);
-
+            this.dataGridTable.ReadOnly = true;
             this.dataGridTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;  
             this.dataGridTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.dataGridTable.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
@@ -122,8 +168,7 @@ namespace Proiect_IP
             this.dataGridTable.GridColor = Color.Black;
             this.dataGridTable.RowHeadersVisible = false;
             this.dataGridTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            // this.dataGridTable.Dock = DockStyle.Fill;
-
+            this.dataGridTable.AllowUserToDeleteRows = false;
             this.dataGridTable.Rows.Clear();
             this.dataGridTable.Columns.Clear();
             this.dataGridTable.ColumnCount = fieldNames.Count;
@@ -141,6 +186,28 @@ namespace Proiect_IP
                 }
                 this.dataGridTable.Rows.Add(row);
             }
+
+            // add new column for delete and edit
+            DataGridViewButtonColumn deleteBtn = new DataGridViewButtonColumn();
+            {
+                deleteBtn.Name = "delete";
+                deleteBtn.HeaderText = "";
+                deleteBtn.Text = "Delete";
+                deleteBtn.UseColumnTextForButtonValue = true; 
+                this.dataGridTable.Columns.Add(deleteBtn);
+            }
+            this.dataGridTable.Columns[this.dataGridTable.ColumnCount - 1].Width = 50;
+
+            DataGridViewButtonColumn editBtn = new DataGridViewButtonColumn();
+            {
+                editBtn.Name = "edit";
+                editBtn.HeaderText = "";
+                editBtn.Text = "Edit";
+                editBtn.UseColumnTextForButtonValue = true;
+                this.dataGridTable.Columns.Add(editBtn);
+            }
+
+            this.dataGridTable.Columns[this.dataGridTable.ColumnCount - 1].Width = 50;
         }
 
         
