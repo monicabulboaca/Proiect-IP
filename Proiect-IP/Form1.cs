@@ -14,12 +14,14 @@ namespace Proiect_IP
         
         private IDatabaseParser _parser;
         private IDatabaseModeler _modeler;
+        private EditRowForm editRowForm; 
+        private int _editRowNumber;
 
         public Form1()
         {
             InitializeComponent();
+            editRowForm = new EditRowForm(this);
             this.dataGridTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridTable_CellClick);
-
         }
 
         private void openFileButton_Click(object sender, EventArgs e)
@@ -82,7 +84,7 @@ namespace Proiect_IP
 
         private void quitEditsButton_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void dataGridTable_CellClick(Object sender, DataGridViewCellEventArgs e)
@@ -94,13 +96,11 @@ namespace Proiect_IP
                 if (e.ColumnIndex == dataGridTable.ColumnCount - 1) // edit button
                 {
                     this.dataGridTable.ReadOnly = false;
-                    EditRowForm editRowForm = new EditRowForm();
+                    
                     SetupDataGridViewRowEdit(editRowForm, e);
+                    _editRowNumber = e.RowIndex;
                     editRowForm.ShowDialog();
-                    if(editRowForm.buttonOkClicked)
-                    {
 
-                    }
                 }
                 else if (e.ColumnIndex == dataGridTable.ColumnCount - 2) // delete button
                 {
@@ -113,6 +113,16 @@ namespace Proiect_IP
                         this.dataGridTable.AllowUserToDeleteRows = true;
                         this.dataGridTable.Rows[e.RowIndex].Selected = true;
                         this.dataGridTable.Rows.RemoveAt(e.RowIndex);
+
+                        string[] rowData = new string[records[e.RowIndex].Data.Count];
+                        for (int j = 0; j < records[e.RowIndex].Data.Count; j++)
+                        {
+                            rowData[j] = this.dataGridTable.Rows[e.RowIndex].Cells[j].Value.ToString();
+                        }
+                        List<string> listRowData = new List<string>(rowData);
+                        Row row = new Row();
+                        row.Data = listRowData;
+                        this._modeler.DeleteData(row);
                     }
                 }
                 this.dataGridTable.ReadOnly = true;
@@ -131,7 +141,7 @@ namespace Proiect_IP
             form.GetDataGridViewRowEdit().CellBorderStyle = DataGridViewCellBorderStyle.Single;
             form.GetDataGridViewRowEdit().GridColor = Color.Black;
             form.GetDataGridViewRowEdit().RowHeadersVisible = false;
-            form.GetDataGridViewRowEdit().SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            form.GetDataGridViewRowEdit().SelectionMode = DataGridViewSelectionMode.CellSelect;
             form.GetDataGridViewRowEdit().AllowUserToDeleteRows = false;
             form.GetDataGridViewRowEdit().Rows.Clear();
             form.GetDataGridViewRowEdit().Columns.Clear();
@@ -208,6 +218,26 @@ namespace Proiect_IP
         {
             PreferencesForm prefForm = new PreferencesForm();
             prefForm.ShowDialog();
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void editRowForm_ReclickRequest(object sender, EventArgs e)
+        {
+
+        }
+
+        public void OkButtonEditRow()
+        {
+            string[] row = new string[records[_editRowNumber].Data.Count];
+            for (int j = 0; j < records[_editRowNumber].Data.Count; j++)
+            {
+                row[j] = editRowForm.GetDataGridViewRowEdit().Rows[0].Cells[j].Value.ToString();
+                this.dataGridTable.Rows[_editRowNumber].Cells[j].Value = row[j];
+            }
         }
     }
 }

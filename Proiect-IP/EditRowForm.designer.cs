@@ -63,6 +63,7 @@
             this.buttonRenuntaEdit.TabIndex = 2;
             this.buttonRenuntaEdit.Text = "Renunță";
             this.buttonRenuntaEdit.UseVisualStyleBackColor = true;
+            this.buttonRenuntaEdit.Click += new System.EventHandler(this.buttonRenuntaEdit_Click);
             // 
             // EditRowForm
             // 

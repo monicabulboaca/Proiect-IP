@@ -13,15 +13,21 @@ namespace Proiect_IP
     public partial class EditRowForm : Form
     {
         public bool buttonOkClicked = false;
-        public EditRowForm()
+        private Form1 mainForm = null;
+
+        public EditRowForm(Form callingForm)
         {
+            mainForm = callingForm as Form1;
             InitializeComponent();
         }
 
         internal void buttonOkEdit_Click(object sender, EventArgs e)
         {
-            buttonOkClicked = true;
+            this.mainForm.OkButtonEditRow();
+            this.Close();
         }
+
+
 
         public DataGridView GetDataGridViewRowEdit()
         {
@@ -31,6 +37,11 @@ namespace Proiect_IP
         public Button GetButtonOkEdit()
         {
             return this.buttonOkEdit;
+        }
+
+        private void buttonRenuntaEdit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
