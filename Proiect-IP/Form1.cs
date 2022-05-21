@@ -204,6 +204,10 @@ namespace Proiect_IP
             this.dataGridTable.Columns[this.dataGridTable.ColumnCount - 1].Width = 50;
         }
 
-        
+        private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PreferencesForm prefForm = new PreferencesForm();
+            prefForm.ShowDialog();
+        }
     }
 }

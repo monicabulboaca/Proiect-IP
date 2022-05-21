@@ -38,3 +38,4 @@ C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.csproj.CopyCom
 C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.exe
 C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.pdb
 C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\obj\Debug\Proiect_IP.EditRowForm.resources
+C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\obj\Debug\Proiect_IP.PreferencesForm.resources
