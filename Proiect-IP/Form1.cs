@@ -19,6 +19,7 @@ namespace Proiect_IP
         {
             InitializeComponent();
             this.dataGridTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridTable_CellClick);
+            this.dataGridTable.AllowUserToDeleteRows = false;
 
         }
 
@@ -97,15 +98,16 @@ namespace Proiect_IP
                     EditRowForm editRowForm = new EditRowForm();
                     SetupDataGridViewRowEdit(editRowForm, e);
                     editRowForm.ShowDialog();
-                    if(editRowForm.OkClicked())
+                    if(editRowForm.buttonOkClicked)
                     {
                         string[] row = new string[records[e.RowIndex].Data.Count];
 
                         for (int j = 0; j < records[e.RowIndex].Data.Count; j++)
                         {
-                            row[j] = records[e.RowIndex].Data[j];
+                            row[j] = (string)editRowForm.GetDataGridViewRowEdit().Rows[0].Cells[j].Value;
+                            this.dataGridTable.Rows[e.RowIndex].Cells[j].Value = row[j];
                         }
-                        this.dataGridTable.Rows.Add(row);
+                        editRowForm.Close();
                     }
                 }
                 else if (e.ColumnIndex == dataGridTable.ColumnCount - 2) // delete button
@@ -120,7 +122,9 @@ namespace Proiect_IP
                         this.dataGridTable.Rows[e.RowIndex].Selected = true;
                         this.dataGridTable.Rows.RemoveAt(e.RowIndex);
                     }
+
                 }
+                this.dataGridTable.AllowUserToDeleteRows = false;
                 this.dataGridTable.ReadOnly = true;
             }
         }

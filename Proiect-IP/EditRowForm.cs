@@ -12,15 +12,15 @@ namespace Proiect_IP
 {
     public partial class EditRowForm : Form
     {
-        private bool okClicked = false;
+        public bool buttonOkClicked = false;
         public EditRowForm()
         {
             InitializeComponent();
         }
 
-        private void buttonOkEdit_Click(object sender, EventArgs e)
+        internal void buttonOkEdit_Click(object sender, EventArgs e)
         {
-            okClicked = true;
+            buttonOkClicked = true;
         }
 
         public DataGridView GetDataGridViewRowEdit()
@@ -28,12 +28,9 @@ namespace Proiect_IP
             return this.dataGridViewRowEdit;
         }
 
-        public bool OkClicked()
+        public Button GetButtonOkEdit()
         {
-            if (okClicked)
-                return true;
-            else
-                return false;
+            return this.buttonOkEdit;
         }
     }
 }
