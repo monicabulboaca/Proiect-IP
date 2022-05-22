@@ -239,14 +239,18 @@ namespace Proiect_IP
                         break;
                     case "xml":
                         _parser = new XMLDatabase();
-                        if (XMLDatabase.IsXML(filePath))
+                        try
                         {
                             _parser.Parse(filePath, out _fieldNames, out _records);
                             _modeler = new DatabaseModeler(_fieldNames, _records);
                             SetupDataGridView();
                         }
-                        else
-                            MessageBox.Show("Is not XML");
+                        catch (Exception ex)
+                        {
+                            string title = "File error";
+                            MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+                            DialogResult result = MessageBox.Show(ex.Message, title, buttons, MessageBoxIcon.Exclamation);
+                        }
                         break;
                     case "json":
                         _parser = new JSONDatabase();
@@ -306,7 +310,7 @@ namespace Proiect_IP
                             _save.Save(filePath, _modeler.GetFields(), _modeler.GetRecords());
                             break;
                         case "xml":
-                            //_save = new XMLSaver();
+                            _save = new XMLSaver();
                             _save.Save(filePath, _modeler.GetFields(), _modeler.GetRecords());
                             break;
                         default:
@@ -333,6 +337,11 @@ namespace Proiect_IP
         private void viewToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Help.ShowHelp(this, "Helper.chm");
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
