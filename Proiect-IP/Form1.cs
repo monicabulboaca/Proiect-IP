@@ -37,121 +37,12 @@ namespace Proiect_IP
 
         private void openFileButton_Click(object sender, EventArgs e)
         {
-            string filePath = string.Empty;
-
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = "c:\\";
-            openFileDialog.Filter = "csv files (*.csv)|*.csv|xml files (*.xml)|*.xml|json files (*.json)|*.json";
-            openFileDialog.FilterIndex = 1;
-
-            if(openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                filePath = openFileDialog.FileName;
-
-                // check extension
-                string fileExtension = filePath.Split('.')[1];
-
-                switch (fileExtension)
-                {
-                    case "csv":
-                        _parser = new CSVDatabase();
-                        try
-                        {
-                            _parser.Parse(filePath, out _fieldNames, out _records);
-                            _modeler = new DatabaseModeler(_fieldNames, _records);
-                            SetupDataGridView();
-                        }
-                        catch(Exception ex)
-                        {
-                            string title = "File error!";
-                            MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
-                            DialogResult result = MessageBox.Show(ex.Message, title, buttons, MessageBoxIcon.Exclamation);
-                        }
-                        break;
-                    case "xml":
-                        _parser = new XMLDatabase();
-                        if (XMLDatabase.IsXML(filePath))
-                        {
-                            _parser.Parse(filePath, out _fieldNames, out _records);
-                            _modeler = new DatabaseModeler(_fieldNames, _records);
-                            SetupDataGridView();
-                        }
-                        else
-                            MessageBox.Show("Is not XML");
-                        break;
-                    case "json":
-                        _parser = new JSONDatabase();
-                        try
-                        {
-                            _parser.Parse(filePath, out _fieldNames, out _records);
-                            _modeler = new DatabaseModeler(_fieldNames, _records);
-                            SetupDataGridView();
-                        }
-                        //invalid json exception
-                        catch (Newtonsoft.Json.JsonReaderException ex)
-                        {
-                            string title = "Invalid file!";
-                            MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
-                            DialogResult result = MessageBox.Show(ex.Message, title, buttons, MessageBoxIcon.Exclamation);
-                        }
-                        //general exception
-                        catch (Exception ex)
-                        {
-                            string title = "File error!";
-                            MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
-                            DialogResult result = MessageBox.Show(ex.Message, title, buttons, MessageBoxIcon.Exclamation);
-                        }
-                        break;
-                    case "sql":
-                        _parser = new SQLiteDatabase();
-                        break;
-                    default:
-                        _parser = new SQLiteDatabase();
-                        break;
-                }
-            }
-
+            OpenFile();
         }
 
         private void saveFileButton_Click(object sender, EventArgs e)
         {
-            string filePath = string.Empty;
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.InitialDirectory = "c:\\";
-            saveFileDialog.Filter = "csv files (*.csv)|*.csv|xml files (*.xml)|*.xml|json files (*.json)|*.json";
-            string defaultExtension = PreferencesForm.Extension;
-            saveFileDialog.FilterIndex = defaultExtension == "csv" ? 1 : (defaultExtension == "xml" ? 2 : (defaultExtension == "json" ? 3 : 1));
-            try
-            {
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    filePath = saveFileDialog.FileName;
-                    string fileExtension = filePath.Split('.')[1];
-                    switch (fileExtension)
-                    {
-                        case "csv":
-                            _save = new CSVSaver();
-                            _save.Save(filePath, _modeler.GetFields(), _modeler.GetRecords());
-                            break;
-                        case "json":
-                            _save = new JSONSaver();
-                            _save.Save(filePath, _modeler.GetFields(), _modeler.GetRecords());
-                            break;
-                        case "xml":
-                            //_save = new XMLSaver();
-                            _save.Save(filePath, _modeler.GetFields(), _modeler.GetRecords());
-                            break;
-                        default:
-                            throw new Exception("Invalid extension! Please try .csv, .xml or .json!");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                string title = "Invalid extension!";
-                MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
-                DialogResult result = MessageBox.Show(ex.Message, title, buttons, MessageBoxIcon.Exclamation);
-            }
+            SaveFile();
         }
 
         private void quitEditsButton_Click(object sender, EventArgs e)
@@ -297,12 +188,7 @@ namespace Proiect_IP
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void editRowForm_ReclickRequest(object sender, EventArgs e)
-        {
-
+            OpenFile();
         }
 
         public void OkButtonEditRow()
@@ -314,6 +200,132 @@ namespace Proiect_IP
                 this.dataGridTable.Rows[_editRowNumber].Cells[j].Value = row[j];
                 this._modeler.UpdateData(_editRowNumber, j, row[j]);
             }
+        }
+
+        private void OpenFile()
+        {
+            string filePath = string.Empty;
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = "c:\\";
+            openFileDialog.Filter = "csv files (*.csv)|*.csv|xml files (*.xml)|*.xml|json files (*.json)|*.json";
+            openFileDialog.FilterIndex = 1;
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                filePath = openFileDialog.FileName;
+
+                // check extension
+                string fileExtension = filePath.Split('.')[1];
+
+                switch (fileExtension)
+                {
+                    case "csv":
+                        _parser = new CSVDatabase();
+                        try
+                        {
+                            _parser.Parse(filePath, out _fieldNames, out _records);
+                            _modeler = new DatabaseModeler(_fieldNames, _records);
+                            SetupDataGridView();
+                        }
+                        catch (Exception ex)
+                        {
+                            string title = "File error!";
+                            MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+                            DialogResult result = MessageBox.Show(ex.Message, title, buttons, MessageBoxIcon.Exclamation);
+                        }
+                        break;
+                    case "xml":
+                        _parser = new XMLDatabase();
+                        if (XMLDatabase.IsXML(filePath))
+                        {
+                            _parser.Parse(filePath, out _fieldNames, out _records);
+                            _modeler = new DatabaseModeler(_fieldNames, _records);
+                            SetupDataGridView();
+                        }
+                        else
+                            MessageBox.Show("Is not XML");
+                        break;
+                    case "json":
+                        _parser = new JSONDatabase();
+                        try
+                        {
+                            _parser.Parse(filePath, out _fieldNames, out _records);
+                            _modeler = new DatabaseModeler(_fieldNames, _records);
+                            SetupDataGridView();
+                        }
+                        //invalid json exception
+                        catch (Newtonsoft.Json.JsonReaderException ex)
+                        {
+                            string title = "Invalid file!";
+                            MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+                            DialogResult result = MessageBox.Show(ex.Message, title, buttons, MessageBoxIcon.Exclamation);
+                        }
+                        //general exception
+                        catch (Exception ex)
+                        {
+                            string title = "File error!";
+                            MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+                            DialogResult result = MessageBox.Show(ex.Message, title, buttons, MessageBoxIcon.Exclamation);
+                        }
+                        break;
+                    case "sql":
+                        _parser = new SQLiteDatabase();
+                        break;
+                    default:
+                        _parser = new SQLiteDatabase();
+                        break;
+                }
+            }
+        }
+
+        private void SaveFile()
+        {
+            string filePath = string.Empty;
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.InitialDirectory = "c:\\";
+            saveFileDialog.Filter = "csv files (*.csv)|*.csv|xml files (*.xml)|*.xml|json files (*.json)|*.json";
+            string defaultExtension = PreferencesForm.Extension;
+            saveFileDialog.FilterIndex = defaultExtension == "csv" ? 1 : (defaultExtension == "xml" ? 2 : (defaultExtension == "json" ? 3 : 1));
+            try
+            {
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    filePath = saveFileDialog.FileName;
+                    string fileExtension = filePath.Split('.')[1];
+                    switch (fileExtension)
+                    {
+                        case "csv":
+                            _save = new CSVSaver();
+                            _save.Save(filePath, _modeler.GetFields(), _modeler.GetRecords());
+                            break;
+                        case "json":
+                            _save = new JSONSaver();
+                            _save.Save(filePath, _modeler.GetFields(), _modeler.GetRecords());
+                            break;
+                        case "xml":
+                            //_save = new XMLSaver();
+                            _save.Save(filePath, _modeler.GetFields(), _modeler.GetRecords());
+                            break;
+                        default:
+                            throw new Exception("Invalid extension! Please try .csv, .xml or .json!");
+                    }
+                    string title = "Save";
+                    MessageBoxButtons buttons = MessageBoxButtons.OK;
+                    DialogResult result = MessageBox.Show("File saved successfully!", title, buttons, MessageBoxIcon.Asterisk);
+                }
+            }
+            catch (Exception ex)
+            {
+                string title = "Invalid extension!";
+                MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+                DialogResult result = MessageBox.Show(ex.Message, title, buttons, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFile();
         }
     }
 }
