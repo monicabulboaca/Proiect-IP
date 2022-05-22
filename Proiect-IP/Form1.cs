@@ -10,24 +10,29 @@ namespace Proiect_IP
 {
     public partial class Form1 : Form
     {
-        private List<string> fieldNames;
-        private List<Row> records;
+        private List<string> _fieldNames;
+        private List<Row> _records;
         
         private IDatabaseParser _parser;
         private IDatabaseModeler _modeler;
         private IDatabaseSave _save;
 
-        private EditRowForm editRowForm;
-        private PreferencesForm prefForm;
+        private EditRowForm _editRowForm;
+        private PreferencesForm _preferencesForm;
 
         private int _editRowNumber;
 
         public Form1()
         {
             InitializeComponent();
-            editRowForm = new EditRowForm(this);
-            prefForm = new PreferencesForm();
-            this.dataGridTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridTable_CellClick);
+            _editRowForm = new EditRowForm(this);
+            _preferencesForm = new PreferencesForm();
+            this.dataGridTable.CellClick += new DataGridViewCellEventHandler(this.dataGridTable_CellClick);
+            this.openFileButton.BackColor = Color.FromArgb(60, 179, 113);
+            this.saveFileButton.BackColor = Color.FromArgb(60, 179, 113);
+            this.quitEditsButton.BackColor = Color.FromArgb(60, 179, 113);
+            this.BackColor = Color.FromArgb(220, 220, 220);
+            this.dataGridTable.BackgroundColor = Color.FromArgb(255, 255, 240);
         }
 
         private void openFileButton_Click(object sender, EventArgs e)
@@ -52,8 +57,8 @@ namespace Proiect_IP
                         _parser = new CSVDatabase();
                         try
                         {
-                            _parser.Parse(filePath, out fieldNames, out records);
-                            _modeler = new DatabaseModeler(fieldNames, records);
+                            _parser.Parse(filePath, out _fieldNames, out _records);
+                            _modeler = new DatabaseModeler(_fieldNames, _records);
                             SetupDataGridView();
                         }
                         catch(Exception ex)
@@ -67,8 +72,8 @@ namespace Proiect_IP
                         _parser = new XMLDatabase();
                         if (XMLDatabase.IsXML(filePath))
                         {
-                            _parser.Parse(filePath, out fieldNames, out records);
-                            _modeler = new DatabaseModeler(fieldNames, records);
+                            _parser.Parse(filePath, out _fieldNames, out _records);
+                            _modeler = new DatabaseModeler(_fieldNames, _records);
                             SetupDataGridView();
                         }
                         else
@@ -78,8 +83,8 @@ namespace Proiect_IP
                         _parser = new JSONDatabase();
                         try
                         {
-                            _parser.Parse(filePath, out fieldNames, out records);
-                            _modeler = new DatabaseModeler(fieldNames, records);
+                            _parser.Parse(filePath, out _fieldNames, out _records);
+                            _modeler = new DatabaseModeler(_fieldNames, _records);
                             SetupDataGridView();
                         }
                         //invalid json exception
@@ -110,14 +115,6 @@ namespace Proiect_IP
 
         private void saveFileButton_Click(object sender, EventArgs e)
         {
-            /*for (int i = 0; i < dataGridTable.Rows.Count; i++)
-            {
-                for (int j = 0; j < fieldNames.Count; j++)
-                {
-                    _modeler.UpdateData(i, j, (string)dataGridTable[j, i].Value);
-                }
-            }*/
-
             string filePath = string.Empty;
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.InitialDirectory = "c:\\";
@@ -172,9 +169,9 @@ namespace Proiect_IP
                 {
                     this.dataGridTable.ReadOnly = false;
                     
-                    SetupDataGridViewRowEdit(editRowForm, e);
+                    SetupDataGridViewRowEdit(_editRowForm, e);
                     _editRowNumber = e.RowIndex;
-                    editRowForm.ShowDialog();
+                    _editRowForm.ShowDialog();
 
                 }
                 else if (e.ColumnIndex == dataGridTable.ColumnCount - 2) // delete button
@@ -188,9 +185,10 @@ namespace Proiect_IP
                         this.dataGridTable.AllowUserToDeleteRows = true;
                         this.dataGridTable.Rows[e.RowIndex].Selected = true;
                         this.dataGridTable.Rows.RemoveAt(e.RowIndex);
+                        _records.RemoveAt(e.RowIndex);
 
-                        string[] rowData = new string[records[e.RowIndex].Data.Count];
-                        for (int j = 0; j < records[e.RowIndex].Data.Count; j++)
+                        string[] rowData = new string[_records[e.RowIndex].Data.Count];
+                        for (int j = 0; j < _records[e.RowIndex].Data.Count; j++)
                         {
                             rowData[j] = this.dataGridTable.Rows[e.RowIndex].Cells[j].Value.ToString();
                         }
@@ -220,48 +218,50 @@ namespace Proiect_IP
             form.GetDataGridViewRowEdit().AllowUserToDeleteRows = false;
             form.GetDataGridViewRowEdit().Rows.Clear();
             form.GetDataGridViewRowEdit().Columns.Clear();
-            form.GetDataGridViewRowEdit().ColumnCount = fieldNames.Count;
-            for (int i = 0; i < fieldNames.Count; i++)
+            form.GetDataGridViewRowEdit().ColumnCount = _fieldNames.Count;
+            for (int i = 0; i < _fieldNames.Count; i++)
             {
-                form.GetDataGridViewRowEdit().Columns[i].Name = fieldNames[i];
+                form.GetDataGridViewRowEdit().Columns[i].Name = _fieldNames[i];
             }
-            string[] row = new string[records[e.RowIndex].Data.Count];
+            string[] row = new string[_records[e.RowIndex].Data.Count];
 
-            for (int j = 0; j < records[e.RowIndex].Data.Count; j++)
+            for (int j = 0; j < _records[e.RowIndex].Data.Count; j++)
             {
-                row[j] = records[e.RowIndex].Data[j];
+                row[j] = _records[e.RowIndex].Data[j];
             }
             form.GetDataGridViewRowEdit().Rows.Add(row);
         }
 
         private void SetupDataGridView()
         {
-            this.dataGridTable.ColumnHeadersDefaultCellStyle.BackColor = Color.Navy;
+            this.dataGridTable.EnableHeadersVisualStyles = false;
             this.dataGridTable.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             this.dataGridTable.ColumnHeadersDefaultCellStyle.Font = new Font(this.dataGridTable.Font, FontStyle.Bold);
             this.dataGridTable.ReadOnly = true;
             this.dataGridTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;  
             this.dataGridTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
-            this.dataGridTable.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            this.dataGridTable.CellBorderStyle = DataGridViewCellBorderStyle.Single;
-            this.dataGridTable.GridColor = Color.Black;
             this.dataGridTable.RowHeadersVisible = false;
             this.dataGridTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.dataGridTable.AllowUserToDeleteRows = false;
             this.dataGridTable.Rows.Clear();
             this.dataGridTable.Columns.Clear();
-            this.dataGridTable.ColumnCount = fieldNames.Count;
-            for(int i = 0; i < fieldNames.Count; i++)
+            this.dataGridTable.ColumnCount = _fieldNames.Count;
+            this.dataGridTable.DefaultCellStyle.BackColor = Color.FromArgb(255, 255, 240);
+            this.dataGridTable.BorderStyle = BorderStyle.None;
+            this.dataGridTable.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(60, 179, 113);
+            this.dataGridTable.DefaultCellStyle.SelectionBackColor = Color.FromArgb(250, 240, 230);
+            this.dataGridTable.DefaultCellStyle.SelectionForeColor = Color.FromArgb(60, 179, 113);
+            for (int i = 0; i < _fieldNames.Count; i++)
             {
-                this.dataGridTable.Columns[i].Name = fieldNames[i];
+                this.dataGridTable.Columns[i].Name = _fieldNames[i];
             }
 
-            for (int i = 0; i < records.Count; i++)
+            for (int i = 0; i < _records.Count; i++)
             {
-                string[] row = new string[records[i].Data.Count];
-                for(int j = 0; j < records[i].Data.Count; j++)
+                string[] row = new string[_records[i].Data.Count];
+                for(int j = 0; j < _records[i].Data.Count; j++)
                 {
-                    row[j]= records[i].Data[j]; 
+                    row[j]= _records[i].Data[j]; 
                 }
                 this.dataGridTable.Rows.Add(row);
             }
@@ -272,8 +272,9 @@ namespace Proiect_IP
                 deleteBtn.Name = "delete";
                 deleteBtn.HeaderText = "";
                 deleteBtn.Text = "Delete";
-                deleteBtn.UseColumnTextForButtonValue = true; 
+                deleteBtn.UseColumnTextForButtonValue = true;
                 this.dataGridTable.Columns.Add(deleteBtn);
+
             }
             this.dataGridTable.Columns[this.dataGridTable.ColumnCount - 1].Width = 50;
 
@@ -291,7 +292,7 @@ namespace Proiect_IP
 
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            prefForm.ShowDialog();
+            _preferencesForm.ShowDialog();
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -306,10 +307,10 @@ namespace Proiect_IP
 
         public void OkButtonEditRow()
         {
-            string[] row = new string[records[_editRowNumber].Data.Count];
-            for (int j = 0; j < records[_editRowNumber].Data.Count; j++)
+            string[] row = new string[_records[_editRowNumber].Data.Count];
+            for (int j = 0; j < _records[_editRowNumber].Data.Count; j++)
             {
-                row[j] = editRowForm.GetDataGridViewRowEdit().Rows[0].Cells[j].Value.ToString();
+                row[j] = _editRowForm.GetDataGridViewRowEdit().Rows[0].Cells[j].Value.ToString();
                 this.dataGridTable.Rows[_editRowNumber].Cells[j].Value = row[j];
                 this._modeler.UpdateData(_editRowNumber, j, row[j]);
             }

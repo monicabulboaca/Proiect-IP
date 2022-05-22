@@ -1,9 +1,9 @@
 ﻿/**************************************************************************
  *                                                                        *
- *  File:        CSVDatabase                                             *
+ *  File:        CSVDatabase                                              *
  *  Copyright:   (c) 2022, Bulboacă Monica-Andreea                        *
  *  E-mail:      monica-andreea.bulboaca@student.tuiasi.ro                *
- *  Description: CSV Database Parser.                                      *
+ *  Description: CSV Database Parser.                                     *
  *               Serializes the data in a .csv database file.             *
  *                                                                        *
  **************************************************************************/

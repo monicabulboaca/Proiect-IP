@@ -1,6 +1,6 @@
 ﻿/**************************************************************************
  *                                                                        *
- *  File:        CSVSaver                                             *
+ *  File:        CSVSaver                                                 *
  *  Copyright:   (c) 2022, Bulboacă Monica-Andreea                        *
  *  E-mail:      monica-andreea.bulboaca@student.tuiasi.ro                *
  *  Description: CSV Database Saver.                                      *

@@ -68,7 +68,7 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(128, 26);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -89,7 +89,7 @@
             // preferencesToolStripMenuItem
             // 
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
             this.preferencesToolStripMenuItem.Text = "Preferences";
             this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
             // 
@@ -132,9 +132,9 @@
             // 
             // quitEditsButton
             // 
-            this.quitEditsButton.Location = new System.Drawing.Point(535, 533);
+            this.quitEditsButton.Location = new System.Drawing.Point(535, 537);
             this.quitEditsButton.Name = "quitEditsButton";
-            this.quitEditsButton.Size = new System.Drawing.Size(94, 46);
+            this.quitEditsButton.Size = new System.Drawing.Size(94, 42);
             this.quitEditsButton.TabIndex = 5;
             this.quitEditsButton.Text = "Quit";
             this.quitEditsButton.UseVisualStyleBackColor = true;

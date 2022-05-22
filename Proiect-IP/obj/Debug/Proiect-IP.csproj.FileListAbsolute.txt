@@ -41,3 +41,8 @@ C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\obj\Debug\Proiect_IP.EditRowForm.re
 C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\obj\Debug\Proiect_IP.PreferencesForm.resources
 F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\obj\Debug\Proiect_IP.EditRowForm.resources
 F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\obj\Debug\Proiect_IP.PreferencesForm.resources
+C:\Users\monic\Desktop\ip\Proiect-IP\Proiect-IP\bin\Debug\Newtonsoft.Json.dll
+C:\Users\monic\Desktop\ip\Proiect-IP\Proiect-IP\bin\Debug\Newtonsoft.Json.xml
+C:\Users\monic\Desktop\ip\Proiect-IP\Proiect-IP\obj\Debug\Proiect_IP.EditRowForm.resources
+C:\Users\monic\Desktop\ip\Proiect-IP\Proiect-IP\obj\Debug\Proiect_IP.PreferencesForm.resources
+C:\Users\monic\Desktop\ip\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.csproj.CopyComplete
