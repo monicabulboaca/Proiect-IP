@@ -33,6 +33,7 @@
             this.radioButtonXML = new System.Windows.Forms.RadioButton();
             this.radioButtonJSON = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonOk = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,6 +45,7 @@
             this.label1.Size = new System.Drawing.Size(276, 47);
             this.label1.TabIndex = 0;
             this.label1.Text = "Please select the default extension for saving files";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // radioButtonCSV
             // 
@@ -98,11 +100,22 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             // 
+            // buttonOk
+            // 
+            this.buttonOk.Location = new System.Drawing.Point(166, 259);
+            this.buttonOk.Name = "buttonOk";
+            this.buttonOk.Size = new System.Drawing.Size(75, 31);
+            this.buttonOk.TabIndex = 5;
+            this.buttonOk.Text = "OK";
+            this.buttonOk.UseVisualStyleBackColor = true;
+            this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
+            // 
             // PreferencesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(442, 335);
+            this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "PreferencesForm";
@@ -120,5 +133,6 @@
         private System.Windows.Forms.RadioButton radioButtonXML;
         private System.Windows.Forms.RadioButton radioButtonJSON;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button buttonOk;
     }
 }

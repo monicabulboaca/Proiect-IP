@@ -95,21 +95,23 @@ namespace Proiect_IP
 
         private void SetupDataGridViewRowEdit(EditRowForm form, DataGridViewCellEventArgs e)
         {
-            form.GetDataGridViewRowEdit().ColumnHeadersDefaultCellStyle.BackColor = Color.Navy;
+            form.GetDataGridViewRowEdit().EnableHeadersVisualStyles = false;
+            form.GetDataGridViewRowEdit().ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(60, 179, 113);
             form.GetDataGridViewRowEdit().ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             form.GetDataGridViewRowEdit().ColumnHeadersDefaultCellStyle.Font = new Font(this.dataGridTable.Font, FontStyle.Bold);
             this.dataGridTable.ReadOnly = false;
             form.GetDataGridViewRowEdit().AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             form.GetDataGridViewRowEdit().AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
-            form.GetDataGridViewRowEdit().ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            form.GetDataGridViewRowEdit().CellBorderStyle = DataGridViewCellBorderStyle.Single;
-            form.GetDataGridViewRowEdit().GridColor = Color.Black;
             form.GetDataGridViewRowEdit().RowHeadersVisible = false;
             form.GetDataGridViewRowEdit().SelectionMode = DataGridViewSelectionMode.CellSelect;
             form.GetDataGridViewRowEdit().AllowUserToDeleteRows = false;
             form.GetDataGridViewRowEdit().Rows.Clear();
             form.GetDataGridViewRowEdit().Columns.Clear();
             form.GetDataGridViewRowEdit().ColumnCount = _fieldNames.Count;
+            form.GetDataGridViewRowEdit().DefaultCellStyle.BackColor = Color.FromArgb(255, 255, 240);
+            form.GetDataGridViewRowEdit().BorderStyle = BorderStyle.None;
+            form.GetDataGridViewRowEdit().DefaultCellStyle.SelectionBackColor = Color.FromArgb(250, 240, 230);
+            form.GetDataGridViewRowEdit().DefaultCellStyle.SelectionForeColor = Color.FromArgb(60, 179, 113);
             for (int i = 0; i < _fieldNames.Count; i++)
             {
                 form.GetDataGridViewRowEdit().Columns[i].Name = _fieldNames[i];
@@ -126,6 +128,7 @@ namespace Proiect_IP
         private void SetupDataGridView()
         {
             this.dataGridTable.EnableHeadersVisualStyles = false;
+            this.dataGridTable.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(60, 179, 113);
             this.dataGridTable.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             this.dataGridTable.ColumnHeadersDefaultCellStyle.Font = new Font(this.dataGridTable.Font, FontStyle.Bold);
             this.dataGridTable.ReadOnly = true;
@@ -139,7 +142,6 @@ namespace Proiect_IP
             this.dataGridTable.ColumnCount = _fieldNames.Count;
             this.dataGridTable.DefaultCellStyle.BackColor = Color.FromArgb(255, 255, 240);
             this.dataGridTable.BorderStyle = BorderStyle.None;
-            this.dataGridTable.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(60, 179, 113);
             this.dataGridTable.DefaultCellStyle.SelectionBackColor = Color.FromArgb(250, 240, 230);
             this.dataGridTable.DefaultCellStyle.SelectionForeColor = Color.FromArgb(60, 179, 113);
             for (int i = 0; i < _fieldNames.Count; i++)

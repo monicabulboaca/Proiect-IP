@@ -17,6 +17,8 @@ namespace Proiect_IP
         {
             InitializeComponent();
             _fileExtension = "csv";
+
+            this.BackColor = Color.FromArgb(220, 220, 220);
         }
 
         public static string Extension
@@ -41,5 +43,16 @@ namespace Proiect_IP
         {
             _fileExtension = "json";
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonOk_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }
