@@ -28,9 +28,9 @@ namespace Proiect_IP
             _editRowForm = new EditRowForm(this);
             _preferencesForm = new PreferencesForm();
             this.dataGridTable.CellClick += new DataGridViewCellEventHandler(this.dataGridTable_CellClick);
-            this.openFileButton.BackColor = Color.FromArgb(60, 179, 113);
-            this.saveFileButton.BackColor = Color.FromArgb(60, 179, 113);
-            this.quitEditsButton.BackColor = Color.FromArgb(60, 179, 113);
+            this.openFileButton.BackColor = Color.FromArgb(168, 228, 160);
+            this.saveFileButton.BackColor = Color.FromArgb(168, 228, 160);
+            this.quitEditsButton.BackColor = Color.FromArgb(168, 228, 160);
             this.BackColor = Color.FromArgb(220, 220, 220);
             this.dataGridTable.BackgroundColor = Color.FromArgb(255, 255, 240);
         }
