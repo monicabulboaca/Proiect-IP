@@ -329,5 +329,10 @@ namespace Proiect_IP
         {
             SaveFile();
         }
+
+        private void viewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "Helper.chm");
+        }
     }
 }

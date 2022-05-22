@@ -52,7 +52,8 @@
             this.viewToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(943, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(707, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -62,13 +63,13 @@
             this.openToolStripMenuItem,
             this.saveToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(128, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -84,38 +85,41 @@
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.preferencesToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
             // 
             // preferencesToolStripMenuItem
             // 
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.preferencesToolStripMenuItem.Text = "Preferences";
             this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
             // 
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.viewToolStripMenuItem.Text = "Help";
+            this.viewToolStripMenuItem.Click += new System.EventHandler(this.viewToolStripMenuItem_Click);
             // 
             // dataGridTable
             // 
             this.dataGridTable.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridTable.Location = new System.Drawing.Point(12, 55);
+            this.dataGridTable.Location = new System.Drawing.Point(9, 45);
+            this.dataGridTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridTable.Name = "dataGridTable";
             this.dataGridTable.RowHeadersWidth = 51;
             this.dataGridTable.RowTemplate.Height = 24;
-            this.dataGridTable.Size = new System.Drawing.Size(919, 472);
+            this.dataGridTable.Size = new System.Drawing.Size(689, 384);
             this.dataGridTable.TabIndex = 2;
             // 
             // openFileButton
             // 
-            this.openFileButton.Location = new System.Drawing.Point(294, 537);
+            this.openFileButton.Location = new System.Drawing.Point(220, 436);
+            this.openFileButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.openFileButton.Name = "openFileButton";
-            this.openFileButton.Size = new System.Drawing.Size(94, 43);
+            this.openFileButton.Size = new System.Drawing.Size(70, 35);
             this.openFileButton.TabIndex = 3;
             this.openFileButton.Text = "Load";
             this.openFileButton.UseVisualStyleBackColor = true;
@@ -123,9 +127,10 @@
             // 
             // saveFileButton
             // 
-            this.saveFileButton.Location = new System.Drawing.Point(414, 537);
+            this.saveFileButton.Location = new System.Drawing.Point(310, 436);
+            this.saveFileButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.saveFileButton.Name = "saveFileButton";
-            this.saveFileButton.Size = new System.Drawing.Size(94, 42);
+            this.saveFileButton.Size = new System.Drawing.Size(70, 34);
             this.saveFileButton.TabIndex = 4;
             this.saveFileButton.Text = "Save as";
             this.saveFileButton.UseVisualStyleBackColor = true;
@@ -133,9 +138,10 @@
             // 
             // quitEditsButton
             // 
-            this.quitEditsButton.Location = new System.Drawing.Point(535, 537);
+            this.quitEditsButton.Location = new System.Drawing.Point(401, 436);
+            this.quitEditsButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.quitEditsButton.Name = "quitEditsButton";
-            this.quitEditsButton.Size = new System.Drawing.Size(94, 42);
+            this.quitEditsButton.Size = new System.Drawing.Size(70, 34);
             this.quitEditsButton.TabIndex = 5;
             this.quitEditsButton.Text = "Quit";
             this.quitEditsButton.UseVisualStyleBackColor = true;
@@ -143,15 +149,16 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(943, 591);
+            this.ClientSize = new System.Drawing.Size(707, 480);
             this.Controls.Add(this.quitEditsButton);
             this.Controls.Add(this.saveFileButton);
             this.Controls.Add(this.openFileButton);
             this.Controls.Add(this.dataGridTable);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Database Manager";
             this.menuStrip1.ResumeLayout(false);
