@@ -38,18 +38,20 @@
             // 
             this.dataGridViewRowEdit.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewRowEdit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRowEdit.Location = new System.Drawing.Point(12, 12);
+            this.dataGridViewRowEdit.Location = new System.Drawing.Point(9, 10);
+            this.dataGridViewRowEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridViewRowEdit.Name = "dataGridViewRowEdit";
             this.dataGridViewRowEdit.RowHeadersWidth = 51;
             this.dataGridViewRowEdit.RowTemplate.Height = 24;
-            this.dataGridViewRowEdit.Size = new System.Drawing.Size(679, 69);
+            this.dataGridViewRowEdit.Size = new System.Drawing.Size(509, 56);
             this.dataGridViewRowEdit.TabIndex = 0;
             // 
             // buttonOkEdit
             // 
-            this.buttonOkEdit.Location = new System.Drawing.Point(251, 100);
+            this.buttonOkEdit.Location = new System.Drawing.Point(188, 81);
+            this.buttonOkEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonOkEdit.Name = "buttonOkEdit";
-            this.buttonOkEdit.Size = new System.Drawing.Size(78, 32);
+            this.buttonOkEdit.Size = new System.Drawing.Size(58, 26);
             this.buttonOkEdit.TabIndex = 1;
             this.buttonOkEdit.Text = "Ok";
             this.buttonOkEdit.UseVisualStyleBackColor = true;
@@ -57,24 +59,26 @@
             // 
             // buttonRenuntaEdit
             // 
-            this.buttonRenuntaEdit.Location = new System.Drawing.Point(380, 100);
+            this.buttonRenuntaEdit.Location = new System.Drawing.Point(285, 81);
+            this.buttonRenuntaEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonRenuntaEdit.Name = "buttonRenuntaEdit";
-            this.buttonRenuntaEdit.Size = new System.Drawing.Size(81, 32);
+            this.buttonRenuntaEdit.Size = new System.Drawing.Size(61, 26);
             this.buttonRenuntaEdit.TabIndex = 2;
-            this.buttonRenuntaEdit.Text = "Renunță";
+            this.buttonRenuntaEdit.Text = "Cancel";
             this.buttonRenuntaEdit.UseVisualStyleBackColor = true;
             this.buttonRenuntaEdit.Click += new System.EventHandler(this.buttonRenuntaEdit_Click);
             // 
             // EditRowForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(703, 140);
+            this.ClientSize = new System.Drawing.Size(527, 114);
             this.Controls.Add(this.buttonRenuntaEdit);
             this.Controls.Add(this.buttonOkEdit);
             this.Controls.Add(this.dataGridViewRowEdit);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "EditRowForm";
-            this.Text = "Editeaza rând";
+            this.Text = "Row edit";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRowEdit)).EndInit();
             this.ResumeLayout(false);
 

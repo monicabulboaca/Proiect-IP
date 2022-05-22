@@ -38,14 +38,13 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(4, 43);
+            this.label1.Location = new System.Drawing.Point(4, 34);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(207, 15);
+            this.label1.Size = new System.Drawing.Size(207, 38);
             this.label1.TabIndex = 0;
-            this.label1.Text = "În ce format doriți să salvați fișierele?";
+            this.label1.Text = "Please select the default extension for saving files";
             // 
             // radioButtonCSV
             // 

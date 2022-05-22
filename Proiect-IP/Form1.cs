@@ -58,7 +58,7 @@ namespace Proiect_IP
                         }
                         catch(Exception ex)
                         {
-                            string title = "Eroare fișier";
+                            string title = "File error!";
                             MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
                             DialogResult result = MessageBox.Show(ex.Message, title, buttons, MessageBoxIcon.Exclamation);
                         }
@@ -82,15 +82,17 @@ namespace Proiect_IP
                             _modeler = new DatabaseModeler(fieldNames, records);
                             SetupDataGridView();
                         }
+                        //invalid json exception
                         catch (Newtonsoft.Json.JsonReaderException ex)
                         {
-                            string title = "Eroare fișier";
+                            string title = "Invalid file!";
                             MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
                             DialogResult result = MessageBox.Show(ex.Message, title, buttons, MessageBoxIcon.Exclamation);
                         }
+                        //general exception
                         catch (Exception ex)
                         {
-                            string title = "Eroare fișier";
+                            string title = "File error!";
                             MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
                             DialogResult result = MessageBox.Show(ex.Message, title, buttons, MessageBoxIcon.Exclamation);
                         }
@@ -122,25 +124,36 @@ namespace Proiect_IP
             saveFileDialog.Filter = "csv files (*.csv)|*.csv|xml files (*.xml)|*.xml|json files (*.json)|*.json";
             string defaultExtension = PreferencesForm.Extension;
             saveFileDialog.FilterIndex = defaultExtension == "csv" ? 1 : (defaultExtension == "xml" ? 2 : (defaultExtension == "json" ? 3 : 1));
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            try
             {
-                filePath = saveFileDialog.FileName;
-                string fileExtension = filePath.Split('.')[1];
-                switch (fileExtension)
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    case "csv":
-                        _save = new CSVSaver();
-                        _save.Save(filePath, _modeler.GetFields(), _modeler.GetRecords());
-                        break;
-                    case "json":
-                        _save = new JSONSaver();
-                        _save.Save(filePath, _modeler.GetFields(), _modeler.GetRecords());
-                        break;
-                    case "xml":
-                        //_save = new XMLSaver();
-                        _save.Save(filePath, _modeler.GetFields(), _modeler.GetRecords());
-                        break;
+                    filePath = saveFileDialog.FileName;
+                    string fileExtension = filePath.Split('.')[1];
+                    switch (fileExtension)
+                    {
+                        case "csv":
+                            _save = new CSVSaver();
+                            _save.Save(filePath, _modeler.GetFields(), _modeler.GetRecords());
+                            break;
+                        case "json":
+                            _save = new JSONSaver();
+                            _save.Save(filePath, _modeler.GetFields(), _modeler.GetRecords());
+                            break;
+                        case "xml":
+                            //_save = new XMLSaver();
+                            _save.Save(filePath, _modeler.GetFields(), _modeler.GetRecords());
+                            break;
+                        default:
+                            throw new Exception("Invalid extension! Please try .csv, .xml or .json!");
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                string title = "Invalid extension!";
+                MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+                DialogResult result = MessageBox.Show(ex.Message, title, buttons, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -166,8 +179,8 @@ namespace Proiect_IP
                 }
                 else if (e.ColumnIndex == dataGridTable.ColumnCount - 2) // delete button
                 {
-                    string message = "Sunteți sigur că vreți să ștergeți rândul?";
-                    string title = "Ștergere rând";
+                    string message = "Are you sure you want to delete this row?";
+                    string title = "Row deletion";
                     MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                     DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
@@ -278,7 +291,6 @@ namespace Proiect_IP
 
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //PreferencesForm prefForm = new PreferencesForm();
             prefForm.ShowDialog();
         }
 
