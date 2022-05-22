@@ -14,5 +14,7 @@ namespace Proiect_IP.interfaces
         void ReadData(string filePath); 
         void UpdateData(int row, int column, string newData);
         int NumberOfRows { get; }
+        List<string> GetFields();
+        List<Row> GetRecords();
     }
 }

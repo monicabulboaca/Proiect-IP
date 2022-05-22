@@ -11,7 +11,7 @@ namespace Proiect_IP
     public class DatabaseModeler : IDatabaseModeler
     {
         private List<string> _fields;
-        private List<Row> _records; // ?? list<list<string>> ??, da chiar asa
+        private List<Row> _records; 
 
         public DatabaseModeler(List<string> fields, List<Row> data)
         {
@@ -50,6 +50,16 @@ namespace Proiect_IP
                 _records.Add(new Row(_fields.Count));
             }
             _records[row].Data[column] = newData;
+        }
+
+        public List<string> GetFields()
+        {
+            return _fields;
+        }
+
+        public List<Row> GetRecords()
+        {
+            return _records;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Proiect_IP.DatabaseParser;
+using Proiect_IP.DatabaseSavers;
 using Proiect_IP.interfaces;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,8 @@ namespace Proiect_IP
         
         private IDatabaseParser _parser;
         private IDatabaseModeler _modeler;
+        private IDatabaseSave _save;
+
         private EditRowForm editRowForm; 
         private int _editRowNumber;
 
@@ -44,14 +47,18 @@ namespace Proiect_IP
                 {
                     case "csv":
                         _parser = new CSVDatabase();
-                        if (CSVDatabase.IsCSV(filePath))
+                        try
                         {
                             _parser.Parse(filePath, out fieldNames, out records);
                             _modeler = new DatabaseModeler(fieldNames, records);
                             SetupDataGridView();
                         }
-                        else
-                            MessageBox.Show("Is not CSV");
+                        catch(Exception ex)
+                        {
+                            string title = "Eroare fișier";
+                            MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+                            DialogResult result = MessageBox.Show(ex.Message, title, buttons, MessageBoxIcon.Exclamation);
+                        }
                         break;
                     case "xml":
                         _parser = new XMLDatabase();
@@ -65,7 +72,16 @@ namespace Proiect_IP
                             MessageBox.Show("Is not XML");
                         break;
                     case "json":
-                        _parser = new JSONDatabase();
+                        try
+                        {
+                            _parser = new JSONDatabase();
+                        }
+                        catch (Exception ex)
+                        {
+                            string title = "Eroare fișier";
+                            MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+                            DialogResult result = MessageBox.Show(ex.Message, title, buttons, MessageBoxIcon.Exclamation);
+                        }
                         break;
                     case "sql":
                         _parser = new SQLiteDatabase();
@@ -80,14 +96,35 @@ namespace Proiect_IP
 
         private void saveFileButton_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < dataGridTable.Rows.Count; i++)
+            /*for (int i = 0; i < dataGridTable.Rows.Count; i++)
             {
                 for (int j = 0; j < fieldNames.Count; j++)
                 {
                     _modeler.UpdateData(i, j, (string)dataGridTable[j, i].Value);
                 }
+            }*/
+
+            string filePath = string.Empty;
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.InitialDirectory = "c:\\";
+            saveFileDialog.Filter = "csv files (*.csv)|*.csv|xml files (*.xml)|*.xml|json files (*.json)|*.json";
+            saveFileDialog.FilterIndex = 1;
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                filePath = saveFileDialog.FileName;
+                string fileExtension = filePath.Split('.')[1];
+                switch (fileExtension)
+                {
+                    case "csv":
+                        _save = new CSVSaver();
+                        _save.Save(filePath, _modeler.GetFields(), _modeler.GetRecords());
+                        break;
+                    case "json":
+                        _save = new JSONSaver();
+                        _save.Save(filePath, _modeler.GetFields(), _modeler.GetRecords());
+                        break;
+                }
             }
-            Console.WriteLine("asd");
         }
 
         private void quitEditsButton_Click(object sender, EventArgs e)
@@ -112,8 +149,8 @@ namespace Proiect_IP
                 }
                 else if (e.ColumnIndex == dataGridTable.ColumnCount - 2) // delete button
                 {
-                    string message = "Sunteti sigur ca vreti sa stergeti randul?";
-                    string title = "Stergere rand";
+                    string message = "Sunteți sigur că vreți să ștergeți rândul?";
+                    string title = "Ștergere rând";
                     MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                     DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
@@ -245,6 +282,7 @@ namespace Proiect_IP
             {
                 row[j] = editRowForm.GetDataGridViewRowEdit().Rows[0].Cells[j].Value.ToString();
                 this.dataGridTable.Rows[_editRowNumber].Cells[j].Value = row[j];
+                this._modeler.UpdateData(_editRowNumber, j, row[j]);
             }
         }
     }

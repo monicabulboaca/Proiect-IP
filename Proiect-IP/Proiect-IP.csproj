@@ -55,6 +55,7 @@
     <Compile Include="DatabaseParser\JSONDatabase.cs" />
     <Compile Include="DatabaseParser\SQLiteDatabase.cs" />
     <Compile Include="DatabaseParser\XMLDatabase.cs" />
+    <Compile Include="DatabaseSavers\CSVSaver.cs" />
     <Compile Include="DatabaseSavers\JSONSaver.cs" />
     <Compile Include="EditRowForm.cs">
       <SubType>Form</SubType>
