@@ -55,6 +55,14 @@ namespace Proiect_IP
                         break;
                     case "xml":
                         _parser = new XMLDatabase();
+                        if (XMLDatabase.IsXML(filePath))
+                        {
+                            _parser.Parse(filePath, out fieldNames, out records);
+                            _modeler = new DatabaseModeler(fieldNames, records);
+                            SetupDataGridView();
+                        }
+                        else
+                            MessageBox.Show("Is not XML");
                         break;
                     case "json":
                         _parser = new JSONDatabase();
