@@ -33,41 +33,50 @@ namespace Proiect_IP.DatabaseParser
         {
             fieldNames = new List<string>();
             records = new List<Row>();
-            XmlReaderSettings settings = new XmlReaderSettings();
-            settings.IgnoreWhitespace = true;
 
-            int withoutFirstAndSecondTags = 0;
-            string repetitiveNode = "";
-            Row row = new Row();
-
-            using (var fileStream = File.OpenText(pathToDatabase))
-            using (XmlReader reader = XmlReader.Create(fileStream, settings))
+            if (XMLDatabase.IsXML(pathToDatabase))
             {
-                while (reader.Read())
+
+                XmlReaderSettings settings = new XmlReaderSettings();
+                settings.IgnoreWhitespace = true;
+
+                int withoutFirstAndSecondTags = 0;
+                string repetitiveNode = "";
+                Row row = new Row();
+
+                using (var fileStream = File.OpenText(pathToDatabase))
+                using (XmlReader reader = XmlReader.Create(fileStream, settings))
                 {
-                    if (reader.NodeType == XmlNodeType.Element && !fieldNames.Contains(reader.Name) && repetitiveNode != reader.Name)
+                    while (reader.Read())
                     {
-                        if (withoutFirstAndSecondTags < 2)
+                        if (reader.NodeType == XmlNodeType.Element && !fieldNames.Contains(reader.Name) && repetitiveNode != reader.Name)
                         {
-                            withoutFirstAndSecondTags++;
-                            repetitiveNode = reader.Name;
+                            if (withoutFirstAndSecondTags < 2)
+                            {
+                                withoutFirstAndSecondTags++;
+                                repetitiveNode = reader.Name;
+                            }
+                            else
+                            {
+                                fieldNames.Add(reader.Name);
+                            }
                         }
-                        else
+                        else if (reader.NodeType == XmlNodeType.Text)
                         {
-                            fieldNames.Add(reader.Name);
+                            row.Data.Add(reader.Value);
+                        }
+                        else if (reader.NodeType == XmlNodeType.EndElement && (reader.Name).Equals(repetitiveNode))
+                        {
+                            records.Add(row);
+                            row = new Row();
                         }
                     }
-                    else if (reader.NodeType == XmlNodeType.Text)
-                    {
-                        row.Data.Add(reader.Value);
-                    }
-                    else if (reader.NodeType == XmlNodeType.EndElement && (reader.Name).Equals(repetitiveNode))
-                    {
-                        records.Add(row);
-                        row = new Row();
-                    }
+                    reader.Close();
                 }
-                reader.Close();
+            }
+            else
+            {
+                throw new Exception("The XML file is not valid!");
             }
         }
 
