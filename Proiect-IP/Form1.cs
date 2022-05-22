@@ -17,13 +17,16 @@ namespace Proiect_IP
         private IDatabaseModeler _modeler;
         private IDatabaseSave _save;
 
-        private EditRowForm editRowForm; 
+        private EditRowForm editRowForm;
+        private PreferencesForm prefForm;
+
         private int _editRowNumber;
 
         public Form1()
         {
             InitializeComponent();
             editRowForm = new EditRowForm(this);
+            prefForm = new PreferencesForm();
             this.dataGridTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridTable_CellClick);
         }
 
@@ -72,9 +75,18 @@ namespace Proiect_IP
                             MessageBox.Show("Is not XML");
                         break;
                     case "json":
+                        _parser = new JSONDatabase();
                         try
                         {
-                            _parser = new JSONDatabase();
+                            _parser.Parse(filePath, out fieldNames, out records);
+                            _modeler = new DatabaseModeler(fieldNames, records);
+                            SetupDataGridView();
+                        }
+                        catch (Newtonsoft.Json.JsonReaderException ex)
+                        {
+                            string title = "Eroare fișier";
+                            MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+                            DialogResult result = MessageBox.Show(ex.Message, title, buttons, MessageBoxIcon.Exclamation);
                         }
                         catch (Exception ex)
                         {
@@ -108,7 +120,8 @@ namespace Proiect_IP
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.InitialDirectory = "c:\\";
             saveFileDialog.Filter = "csv files (*.csv)|*.csv|xml files (*.xml)|*.xml|json files (*.json)|*.json";
-            saveFileDialog.FilterIndex = 1;
+            string defaultExtension = PreferencesForm.Extension;
+            saveFileDialog.FilterIndex = defaultExtension == "csv" ? 1 : (defaultExtension == "xml" ? 2 : (defaultExtension == "json" ? 3 : 1));
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 filePath = saveFileDialog.FileName;
@@ -121,6 +134,10 @@ namespace Proiect_IP
                         break;
                     case "json":
                         _save = new JSONSaver();
+                        _save.Save(filePath, _modeler.GetFields(), _modeler.GetRecords());
+                        break;
+                    case "xml":
+                        //_save = new XMLSaver();
                         _save.Save(filePath, _modeler.GetFields(), _modeler.GetRecords());
                         break;
                 }
@@ -261,7 +278,7 @@ namespace Proiect_IP
 
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PreferencesForm prefForm = new PreferencesForm();
+            //PreferencesForm prefForm = new PreferencesForm();
             prefForm.ShowDialog();
         }
 

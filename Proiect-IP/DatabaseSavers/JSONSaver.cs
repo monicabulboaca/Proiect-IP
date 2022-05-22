@@ -1,6 +1,6 @@
 ﻿/**************************************************************************
  *                                                                        *
- *  File:        JSONDatabase                                             *
+ *  File:        JSONSaver                                                *
  *  Copyright:   (c) 2022, Mahu Petrișor                                  *
  *  E-mail:      petrisor.mahu@student.tuiasi.ro                          *
  *  Description: JSON Database Saver.                                     *

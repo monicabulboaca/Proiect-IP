@@ -39,3 +39,5 @@ C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.exe
 C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.pdb
 C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\obj\Debug\Proiect_IP.EditRowForm.resources
 C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\obj\Debug\Proiect_IP.PreferencesForm.resources
+F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\obj\Debug\Proiect_IP.EditRowForm.resources
+F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\obj\Debug\Proiect_IP.PreferencesForm.resources

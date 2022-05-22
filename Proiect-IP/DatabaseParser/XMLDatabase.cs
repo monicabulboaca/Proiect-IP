@@ -1,7 +1,7 @@
 ﻿/**************************************************************************
  *                                                                        *
  *  File:        XMLDatabase                                              *
- *  Copyright:   (c) 2022, Talmacel Larisa-Maria                          *
+ *  Copyright:   (c) 2022, Tălmăcel Larisa-Maria                          *
  *  E-mail:      larisa-maria.talmacel@student.tuiasi.ro                  *
  *  Description: XML Database Parser.                                     *
  *               Validating, extracting field names and records from a    *
