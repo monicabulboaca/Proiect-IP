@@ -56,41 +56,49 @@ namespace Proiect_IP
 
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
-                if (e.ColumnIndex == dataGridTable.ColumnCount - 1) // edit button
+                try
                 {
-                    this.dataGridTable.ReadOnly = false;
-                    
-                    SetupDataGridViewRowEdit(_editRowForm, e);
-                    _editRowNumber = e.RowIndex;
-                    _editRowForm.ShowDialog();
-
-                }
-                else if (e.ColumnIndex == dataGridTable.ColumnCount - 2) // delete button
-                {
-                    string message = "Are you sure you want to delete this row?";
-                    string title = "Row deletion";
-                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                    DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
+                    if (e.ColumnIndex == dataGridTable.ColumnCount - 1) // edit button
                     {
-                        this.dataGridTable.AllowUserToDeleteRows = true;
-                        this.dataGridTable.Rows[e.RowIndex].Selected = true;
-                        this.dataGridTable.Rows.RemoveAt(e.RowIndex);
-                        _records.RemoveAt(e.RowIndex);
+                        this.dataGridTable.ReadOnly = false;
 
-                        string[] rowData = new string[_records[e.RowIndex].Data.Count];
-                        for (int j = 0; j < _records[e.RowIndex].Data.Count; j++)
-                        {
-                            rowData[j] = this.dataGridTable.Rows[e.RowIndex].Cells[j].Value.ToString();
-                        }
-                        List<string> listRowData = new List<string>(rowData);
-                        Row row = new Row();
-                        row.Data = listRowData;
-                        this._modeler.DeleteData(row);
+                        SetupDataGridViewRowEdit(_editRowForm, e);
+                        _editRowNumber = e.RowIndex;
+                        _editRowForm.ShowDialog();
+
                     }
+                    else if (e.ColumnIndex == dataGridTable.ColumnCount - 2) // delete button
+                    {
+                        string message = "Are you sure you want to delete this row?";
+                        string title = "Row deletion";
+                        MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                        DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes)
+                        {
+                            this.dataGridTable.AllowUserToDeleteRows = true;
+                            this.dataGridTable.Rows[e.RowIndex].Selected = true;
+                            this.dataGridTable.Rows.RemoveAt(e.RowIndex);
+                            _records.RemoveAt(e.RowIndex);
+
+                            string[] rowData = new string[_records[e.RowIndex].Data.Count];
+                            for (int j = 0; j < _records[e.RowIndex].Data.Count; j++)
+                            {
+                                rowData[j] = this.dataGridTable.Rows[e.RowIndex].Cells[j].Value.ToString();
+                            }
+                            List<string> listRowData = new List<string>(rowData);
+                            Row row = new Row();
+                            row.Data = listRowData;
+                            this._modeler.DeleteData(row);
+                        }
+                    }
+                    this.dataGridTable.ReadOnly = true;
                 }
-                this.dataGridTable.ReadOnly = true;
-            }
+                catch(Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+             }
+                
         }
 
         private void SetupDataGridViewRowEdit(EditRowForm form, DataGridViewCellEventArgs e)
@@ -131,7 +139,6 @@ namespace Proiect_IP
             this.dataGridTable.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(60, 179, 113);
             this.dataGridTable.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             this.dataGridTable.ColumnHeadersDefaultCellStyle.Font = new Font(this.dataGridTable.Font, FontStyle.Bold);
-            this.dataGridTable.ReadOnly = true;
             this.dataGridTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;  
             this.dataGridTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.dataGridTable.RowHeadersVisible = false;
@@ -331,16 +338,6 @@ namespace Proiect_IP
         private void viewToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Help.ShowHelp(this, "Helper.chm");
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load_1(object sender, EventArgs e)
-        {
-
         }
     }
 }
