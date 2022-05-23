@@ -35,25 +35,44 @@ namespace Proiect_IP
             this.dataGridTable.BackgroundColor = Color.FromArgb(255, 255, 240);
         }
 
+        /// <summary>
+        /// Event that is triggered when user clicks on the "Load" button
+        /// </summary>
+        /// <param name="sender">Parameter for creating the reference of the object.</param>
+        /// <param name="e">Parameter that containts the event data.</param>
         private void openFileButton_Click(object sender, EventArgs e)
         {
             OpenFile();
         }
 
+        /// <summary>
+        /// Event that is triggered when user clicks on the "Save as" button
+        /// </summary>
+        /// <param name="sender">Parameter for creating the reference of the object.</param>
+        /// <param name="e">Parameter that containts the event data.</param>
         private void saveFileButton_Click(object sender, EventArgs e)
         {
             SaveFile();
         }
 
+        /// <summary>
+        /// Event that is triggered when user clicks on the "Quit" button
+        /// </summary>
+        /// <param name="sender">Parameter for creating the reference of the object.</param>
+        /// <param name="e">Parameter that containts the event data.</param>
         private void quitEditsButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Event that is triggered when user clicks on a cell in DataGridView.
+        /// </summary>
+        /// <param name="sender">Parameter for creating the reference of the object.</param>
+        /// <param name="e">Parameter that containts the event data.</param>
         private void dataGridTable_CellClick(Object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
-
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
                 try
@@ -65,7 +84,6 @@ namespace Proiect_IP
                         SetupDataGridViewRowEdit(_editRowForm, e);
                         _editRowNumber = e.RowIndex;
                         _editRowForm.ShowDialog();
-
                     }
                     else if (e.ColumnIndex == dataGridTable.ColumnCount - 2) // delete button
                     {
@@ -101,6 +119,11 @@ namespace Proiect_IP
                 
         }
 
+        /// <summary>
+        /// Method that populates and styles the DataGridView for the pop up edit form
+        /// </summary>
+        /// <param name="form">The pop up form. </param>
+        /// <param name="e">Parameter that containts the event data.</param>
         private void SetupDataGridViewRowEdit(EditRowForm form, DataGridViewCellEventArgs e)
         {
             form.GetDataGridViewRowEdit().EnableHeadersVisualStyles = false;
@@ -133,6 +156,9 @@ namespace Proiect_IP
             form.GetDataGridViewRowEdit().Rows.Add(row);
         }
 
+        /// <summary>
+        /// Method that populates and styles the DataGridView for the main form
+        /// </summary>
         private void SetupDataGridView()
         {
             this.dataGridTable.EnableHeadersVisualStyles = false;
@@ -152,9 +178,7 @@ namespace Proiect_IP
             this.dataGridTable.DefaultCellStyle.SelectionBackColor = Color.FromArgb(250, 240, 230);
             this.dataGridTable.DefaultCellStyle.SelectionForeColor = Color.FromArgb(60, 179, 113);
             for (int i = 0; i < _fieldNames.Count; i++)
-            {
                 this.dataGridTable.Columns[i].Name = _fieldNames[i];
-            }
 
             for (int i = 0; i < _records.Count; i++)
             {
@@ -190,16 +214,30 @@ namespace Proiect_IP
             this.dataGridTable.Columns[this.dataGridTable.ColumnCount - 1].Width = 50;
         }
 
+        /// <summary>
+        /// Event that is triggered when user presses the preferences tab in the menu.
+        /// </summary>
+        /// <param name="sender">Parameter for creating the reference of the object.</param>
+        /// <param name="e">Parameter that containts the event data.</param>
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _preferencesForm.ShowDialog();
         }
 
+
+        /// <summary>
+        /// Event that is triggered when user presses the "Open file" tab in the submenu File.
+        /// </summary>
+        /// <param name="sender">Parameter for creating the reference of the object.</param>
+        /// <param name="e">Parameter that containts the event data.</param>
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFile();
         }
 
+        /// <summary>
+        /// Method that takes care of updating the DataGridTable after user clicked ok button in the pop up edit form
+        /// </summary>
         public void OkButtonEditRow()
         {
             string[] row = new string[_records[_editRowNumber].Data.Count];
@@ -211,6 +249,9 @@ namespace Proiect_IP
             }
         }
 
+        /// <summary>
+        /// Method that loads a file and parses its content.
+        /// </summary>
         private void OpenFile()
         {
             string filePath = string.Empty;
@@ -286,6 +327,9 @@ namespace Proiect_IP
             }
         }
 
+        /// <summary>
+        /// Method that saves a file with certain extension.
+        /// </summary>
         private void SaveFile()
         {
             string filePath = string.Empty;
