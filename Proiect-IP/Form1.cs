@@ -275,12 +275,6 @@ namespace Proiect_IP
                             DialogResult result = MessageBox.Show(ex.Message, title, buttons, MessageBoxIcon.Exclamation);
                         }
                         break;
-                    case "sql":
-                        _parser = new SQLiteDatabase();
-                        break;
-                    default:
-                        _parser = new SQLiteDatabase();
-                        break;
                 }
             }
         }
@@ -340,6 +334,11 @@ namespace Proiect_IP
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e)
         {
 
         }
