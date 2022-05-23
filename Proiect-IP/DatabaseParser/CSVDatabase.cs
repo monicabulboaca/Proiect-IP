@@ -64,7 +64,7 @@ namespace Proiect_IP.DatabaseParser
         /// </summary>
         /// <param name="filePath">Filepath to file</param>
         /// <returns>true if the file is a valid csv file, else otherwise</returns>
-        private bool IsCSV(string filePath)
+        public bool IsCSV(string filePath)
         {
             Int32 numberOfCommas = 0;
             string[] lines = File.ReadAllLines(filePath);
