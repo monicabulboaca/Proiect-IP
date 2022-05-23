@@ -9,7 +9,6 @@
  **************************************************************************/
 
 
-
 using Proiect_IP.interfaces;
 using System;
 using System.Collections.Generic;
@@ -42,7 +41,7 @@ namespace Proiect_IP.DatabaseSavers
                 {
                     streamWriter.Write("\t\t<" + fieldNames[indexField] + ">");
                     streamWriter.Write(row.Data[indexField]);
-                    streamWriter.Write("</"+fieldNames[indexField]+">\n");
+                    streamWriter.Write("</" + fieldNames[indexField] + ">\n");
                 }
             }
 
@@ -50,6 +49,5 @@ namespace Proiect_IP.DatabaseSavers
             streamWriter.Write("</root> \n");
             streamWriter.Close();
         }
-
     }
 }
