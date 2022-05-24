@@ -1,0 +1,6 @@
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\InterfacesLibrary\bin\Debug\InterfacesLibrary.dll
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\InterfacesLibrary\bin\Debug\InterfacesLibrary.pdb
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\InterfacesLibrary\obj\Debug\InterfacesLibrary.csproj.CoreCompileInputs.cache
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\InterfacesLibrary\obj\Debug\InterfacesLibrary.dll
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\InterfacesLibrary\obj\Debug\InterfacesLibrary.pdb
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\InterfacesLibrary\obj\Debug\InterfacesLibrary.csprojAssemblyReference.cache

@@ -1,0 +1,73 @@
+C:\Users\monic\Desktop\IP\Proiect-IP\Proiect-IP\bin\Debug\Proiect-IP.exe.config
+C:\Users\monic\Desktop\IP\Proiect-IP\Proiect-IP\bin\Debug\Proiect-IP.exe
+C:\Users\monic\Desktop\IP\Proiect-IP\Proiect-IP\bin\Debug\Proiect-IP.pdb
+C:\Users\monic\Desktop\IP\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.csproj.AssemblyReference.cache
+C:\Users\monic\Desktop\IP\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.csproj.SuggestedBindingRedirects.cache
+C:\Users\monic\Desktop\IP\Proiect-IP\Proiect-IP\obj\Debug\Proiect_IP.Form1.resources
+C:\Users\monic\Desktop\IP\Proiect-IP\Proiect-IP\obj\Debug\Proiect_IP.Properties.Resources.resources
+C:\Users\monic\Desktop\IP\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.csproj.GenerateResource.cache
+C:\Users\monic\Desktop\IP\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.csproj.CoreCompileInputs.cache
+C:\Users\monic\Desktop\IP\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.exe
+C:\Users\monic\Desktop\IP\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.pdb
+F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\bin\Debug\Proiect-IP.exe.config
+F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\bin\Debug\Proiect-IP.exe
+F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\bin\Debug\Proiect-IP.pdb
+F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\bin\Debug\Newtonsoft.Json.dll
+F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\bin\Debug\Newtonsoft.Json.xml
+F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\obj\Debug\Proiect-IP.csproj.AssemblyReference.cache
+F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\obj\Debug\Proiect-IP.csproj.SuggestedBindingRedirects.cache
+F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\obj\Debug\Proiect_IP.Form1.resources
+F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\obj\Debug\Proiect_IP.Properties.Resources.resources
+F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\obj\Debug\Proiect-IP.csproj.GenerateResource.cache
+F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\obj\Debug\Proiect-IP.csproj.CoreCompileInputs.cache
+F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\obj\Debug\Proiect-IP.csproj.CopyComplete
+F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\obj\Debug\Proiect-IP.exe
+F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\obj\Debug\Proiect-IP.pdb
+C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\bin\Debug\Proiect-IP.exe.config
+C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\bin\Debug\Proiect-IP.exe
+C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\bin\Debug\Proiect-IP.pdb
+C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\bin\Debug\Newtonsoft.Json.dll
+C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\bin\Debug\Newtonsoft.Json.xml
+C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.csproj.AssemblyReference.cache
+C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.csproj.SuggestedBindingRedirects.cache
+C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\obj\Debug\Proiect_IP.Form1.resources
+C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\obj\Debug\Proiect_IP.Properties.Resources.resources
+C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.csproj.GenerateResource.cache
+C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.csproj.CoreCompileInputs.cache
+C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.csproj.CopyComplete
+C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.exe
+C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.pdb
+C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\obj\Debug\Proiect_IP.EditRowForm.resources
+C:\Users\monic\Desktop\Proiect-IP\Proiect-IP\obj\Debug\Proiect_IP.PreferencesForm.resources
+F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\obj\Debug\Proiect_IP.EditRowForm.resources
+F:\That school folder\AN3\Semestrul2\IP-P\Proiect-IP\obj\Debug\Proiect_IP.PreferencesForm.resources
+C:\Users\monic\Desktop\ip\Proiect-IP\Proiect-IP\bin\Debug\Newtonsoft.Json.dll
+C:\Users\monic\Desktop\ip\Proiect-IP\Proiect-IP\bin\Debug\Newtonsoft.Json.xml
+C:\Users\monic\Desktop\ip\Proiect-IP\Proiect-IP\obj\Debug\Proiect_IP.EditRowForm.resources
+C:\Users\monic\Desktop\ip\Proiect-IP\Proiect-IP\obj\Debug\Proiect_IP.PreferencesForm.resources
+C:\Users\monic\Desktop\ip\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.csproj.CopyComplete
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.csprojAssemblyReference.cache
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\obj\Debug\Proiect_IP.EditRowForm.resources
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\obj\Debug\Proiect_IP.Form1.resources
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\obj\Debug\Proiect_IP.PreferencesForm.resources
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\obj\Debug\Proiect_IP.Properties.Resources.resources
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.csproj.GenerateResource.cache
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.csproj.CoreCompileInputs.cache
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.exe
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.pdb
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\bin\Debug\Proiect-IP.exe.config
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\bin\Debug\Proiect-IP.exe
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\bin\Debug\Proiect-IP.pdb
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\bin\Debug\CSV.dll
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\bin\Debug\JSON.dll
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\bin\Debug\Newtonsoft.Json.dll
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\bin\Debug\XML.dll
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\bin\Debug\Newtonsoft.Json.xml
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\obj\Debug\Proiect-IP.csproj.CopyComplete
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\bin\Debug\DatabaseModeler.dll
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\bin\Debug\InterfacesLibrary.dll
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\bin\Debug\CSV.pdb
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\bin\Debug\DatabaseModeler.pdb
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\bin\Debug\InterfacesLibrary.pdb
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\bin\Debug\JSON.pdb
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\bin\Debug\XML.pdb

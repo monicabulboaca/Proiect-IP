@@ -1,0 +1,9 @@
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\CSV\bin\Debug\CSV.dll
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\CSV\bin\Debug\CSV.pdb
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\CSV\obj\Debug\CSV.csprojAssemblyReference.cache
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\CSV\obj\Debug\CSV.csproj.CoreCompileInputs.cache
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\CSV\obj\Debug\CSV.dll
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\CSV\obj\Debug\CSV.pdb
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\CSV\bin\Debug\InterfacesLibrary.dll
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\CSV\bin\Debug\InterfacesLibrary.pdb
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\CSV\obj\Debug\CSV.csproj.CopyComplete
