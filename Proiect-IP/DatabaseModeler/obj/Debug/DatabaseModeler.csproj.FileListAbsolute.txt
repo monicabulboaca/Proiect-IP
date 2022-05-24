@@ -1,0 +1,9 @@
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\DatabaseModeler\bin\Debug\DatabaseModeler.dll
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\DatabaseModeler\bin\Debug\DatabaseModeler.pdb
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\DatabaseModeler\bin\Debug\InterfacesLibrary.dll
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\DatabaseModeler\bin\Debug\InterfacesLibrary.pdb
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\DatabaseModeler\obj\Debug\DatabaseModeler.csproj.CoreCompileInputs.cache
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\DatabaseModeler\obj\Debug\DatabaseModeler.csproj.CopyComplete
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\DatabaseModeler\obj\Debug\DatabaseModeler.dll
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\DatabaseModeler\obj\Debug\DatabaseModeler.pdb
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\DatabaseModeler\obj\Debug\DatabaseModeler.csprojAssemblyReference.cache

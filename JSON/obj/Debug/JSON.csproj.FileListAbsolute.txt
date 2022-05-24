@@ -1,0 +1,11 @@
+D:\#FACULTATE\IP\Proiect-IP\JSON\bin\Debug\JSON.dll
+D:\#FACULTATE\IP\Proiect-IP\JSON\bin\Debug\JSON.pdb
+D:\#FACULTATE\IP\Proiect-IP\JSON\bin\Debug\Newtonsoft.Json.dll
+D:\#FACULTATE\IP\Proiect-IP\JSON\bin\Debug\Newtonsoft.Json.xml
+D:\#FACULTATE\IP\Proiect-IP\JSON\obj\Debug\JSON.csprojAssemblyReference.cache
+D:\#FACULTATE\IP\Proiect-IP\JSON\obj\Debug\JSON.csproj.CoreCompileInputs.cache
+D:\#FACULTATE\IP\Proiect-IP\JSON\obj\Debug\JSON.csproj.CopyComplete
+D:\#FACULTATE\IP\Proiect-IP\JSON\obj\Debug\JSON.dll
+D:\#FACULTATE\IP\Proiect-IP\JSON\obj\Debug\JSON.pdb
+D:\#FACULTATE\IP\Proiect-IP\JSON\bin\Debug\InterfacesLibrary.dll
+D:\#FACULTATE\IP\Proiect-IP\JSON\bin\Debug\InterfacesLibrary.pdb

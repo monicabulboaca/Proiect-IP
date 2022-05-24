@@ -76,7 +76,7 @@
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -107,17 +107,18 @@
             this.dataGridTable.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridTable.Location = new System.Drawing.Point(9, 45);
-            this.dataGridTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridTable.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridTable.Name = "dataGridTable";
             this.dataGridTable.RowHeadersWidth = 51;
             this.dataGridTable.RowTemplate.Height = 24;
             this.dataGridTable.Size = new System.Drawing.Size(689, 384);
             this.dataGridTable.TabIndex = 2;
+            this.dataGridTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridTable_CellContentClick);
             // 
             // openFileButton
             // 
             this.openFileButton.Location = new System.Drawing.Point(220, 436);
-            this.openFileButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.openFileButton.Margin = new System.Windows.Forms.Padding(2);
             this.openFileButton.Name = "openFileButton";
             this.openFileButton.Size = new System.Drawing.Size(70, 35);
             this.openFileButton.TabIndex = 3;
@@ -128,7 +129,7 @@
             // saveFileButton
             // 
             this.saveFileButton.Location = new System.Drawing.Point(310, 436);
-            this.saveFileButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.saveFileButton.Margin = new System.Windows.Forms.Padding(2);
             this.saveFileButton.Name = "saveFileButton";
             this.saveFileButton.Size = new System.Drawing.Size(70, 34);
             this.saveFileButton.TabIndex = 4;
@@ -139,7 +140,7 @@
             // quitEditsButton
             // 
             this.quitEditsButton.Location = new System.Drawing.Point(401, 436);
-            this.quitEditsButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.quitEditsButton.Margin = new System.Windows.Forms.Padding(2);
             this.quitEditsButton.Name = "quitEditsButton";
             this.quitEditsButton.Size = new System.Drawing.Size(70, 34);
             this.quitEditsButton.TabIndex = 5;
@@ -158,7 +159,7 @@
             this.Controls.Add(this.dataGridTable);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Database Manager";
             this.menuStrip1.ResumeLayout(false);

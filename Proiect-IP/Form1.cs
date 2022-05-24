@@ -1,7 +1,4 @@
-﻿using Proiect_IP.DatabaseParser;
-using Proiect_IP.DatabaseSavers;
-using Proiect_IP.interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
@@ -11,11 +8,11 @@ namespace Proiect_IP
     public partial class Form1 : Form
     {
         private List<string> _fieldNames;
-        private List<Row> _records;
+        private List<Interfaces.Row> _records;
         
-        private IDatabaseParser _parser;
-        private IDatabaseModeler _modeler;
-        private IDatabaseSave _save;
+        private Interfaces.IDatabaseParser _parser;
+        private Interfaces.IDatabaseModeler _modeler;
+        private Interfaces.IDatabaseSave _save;
 
         private EditRowForm _editRowForm;
         private PreferencesForm _preferencesForm;
@@ -104,7 +101,7 @@ namespace Proiect_IP
                                 rowData[j] = this.dataGridTable.Rows[e.RowIndex].Cells[j].Value.ToString();
                             }
                             List<string> listRowData = new List<string>(rowData);
-                            Row row = new Row();
+                            Interfaces.Row row = new Interfaces.Row();
                             row.Data = listRowData;
                             this._modeler.DeleteData(row);
                         }
@@ -271,11 +268,11 @@ namespace Proiect_IP
                 switch (fileExtension)
                 {
                     case "csv":
-                        _parser = new CSVDatabase();
+                        _parser = new CSV.CSVDatabase();
                         try
                         {
                             _parser.Parse(filePath, out _fieldNames, out _records);
-                            _modeler = new DatabaseModeler(_fieldNames, _records);
+                            _modeler = new Modeler.DatabaseModeler(_fieldNames, _records);
                             SetupDataGridView();
                         }
                         catch (Exception ex)
@@ -286,11 +283,11 @@ namespace Proiect_IP
                         }
                         break;
                     case "xml":
-                        _parser = new XMLDatabase();
+                        _parser = new XML.XMLDatabase();
                         try
                         {
                             _parser.Parse(filePath, out _fieldNames, out _records);
-                            _modeler = new DatabaseModeler(_fieldNames, _records);
+                            _modeler = new Modeler.DatabaseModeler(_fieldNames, _records);
                             SetupDataGridView();
                         }
                         catch (Exception ex)
@@ -301,11 +298,11 @@ namespace Proiect_IP
                         }
                         break;
                     case "json":
-                        _parser = new JSONDatabase();
+                        _parser = new JSON.JSONDatabase();
                         try
                         {
                             _parser.Parse(filePath, out _fieldNames, out _records);
-                            _modeler = new DatabaseModeler(_fieldNames, _records);
+                            _modeler = new Modeler.DatabaseModeler(_fieldNames, _records);
                             SetupDataGridView();
                         }
                         //invalid json exception
@@ -347,15 +344,15 @@ namespace Proiect_IP
                     switch (fileExtension)
                     {
                         case "csv":
-                            _save = new CSVSaver();
+                            _save =new CSV.CSVSaver();
                             _save.Save(filePath, _modeler.GetFields(), _modeler.GetRecords());
                             break;
                         case "json":
-                            _save = new JSONSaver();
+                            _save = new JSON.JSONSaver();
                             _save.Save(filePath, _modeler.GetFields(), _modeler.GetRecords());
                             break;
                         case "xml":
-                            _save = new XMLSaver();
+                            _save = new XML.XMLSaver();
                             _save.Save(filePath, _modeler.GetFields(), _modeler.GetRecords());
                             break;
                         default:
@@ -382,6 +379,11 @@ namespace Proiect_IP
         private void viewToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Help.ShowHelp(this, "Helper.chm");
+        }
+
+        private void dataGridTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

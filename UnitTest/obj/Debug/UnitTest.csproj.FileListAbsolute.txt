@@ -18,3 +18,33 @@ C:\AN 3\IP\ADAUGA_sSRS_VERSION\Proiect-IP\UnitTest\bin\Debug\Newtonsoft.Json.dll
 C:\AN 3\IP\ADAUGA_sSRS_VERSION\Proiect-IP\UnitTest\bin\Debug\Proiect-IP.pdb
 C:\AN 3\IP\ADAUGA_sSRS_VERSION\Proiect-IP\UnitTest\bin\Debug\Proiect-IP.exe.config
 C:\AN 3\IP\ADAUGA_sSRS_VERSION\Proiect-IP\UnitTest\bin\Debug\Newtonsoft.Json.xml
+D:\#FACULTATE\IP\Proiect-IP\UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+D:\#FACULTATE\IP\Proiect-IP\UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+D:\#FACULTATE\IP\Proiect-IP\UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+D:\#FACULTATE\IP\Proiect-IP\UnitTest\bin\Debug\Microsoft.TestPlatform.AdapterUtilities.dll
+D:\#FACULTATE\IP\Proiect-IP\UnitTest\bin\Debug\UnitTest.dll
+D:\#FACULTATE\IP\Proiect-IP\UnitTest\bin\Debug\UnitTest.pdb
+D:\#FACULTATE\IP\Proiect-IP\UnitTest\bin\Debug\CSV.dll
+D:\#FACULTATE\IP\Proiect-IP\UnitTest\bin\Debug\DatabaseModeler.dll
+D:\#FACULTATE\IP\Proiect-IP\UnitTest\bin\Debug\InterfacesLibrary.dll
+D:\#FACULTATE\IP\Proiect-IP\UnitTest\bin\Debug\JSON.dll
+D:\#FACULTATE\IP\Proiect-IP\UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+D:\#FACULTATE\IP\Proiect-IP\UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+D:\#FACULTATE\IP\Proiect-IP\UnitTest\bin\Debug\Newtonsoft.Json.dll
+D:\#FACULTATE\IP\Proiect-IP\UnitTest\bin\Debug\Proiect-IP.exe
+D:\#FACULTATE\IP\Proiect-IP\UnitTest\bin\Debug\XML.dll
+D:\#FACULTATE\IP\Proiect-IP\UnitTest\bin\Debug\Proiect-IP.pdb
+D:\#FACULTATE\IP\Proiect-IP\UnitTest\bin\Debug\Proiect-IP.exe.config
+D:\#FACULTATE\IP\Proiect-IP\UnitTest\bin\Debug\CSV.pdb
+D:\#FACULTATE\IP\Proiect-IP\UnitTest\bin\Debug\DatabaseModeler.pdb
+D:\#FACULTATE\IP\Proiect-IP\UnitTest\bin\Debug\InterfacesLibrary.pdb
+D:\#FACULTATE\IP\Proiect-IP\UnitTest\bin\Debug\JSON.pdb
+D:\#FACULTATE\IP\Proiect-IP\UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+D:\#FACULTATE\IP\Proiect-IP\UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+D:\#FACULTATE\IP\Proiect-IP\UnitTest\bin\Debug\Newtonsoft.Json.xml
+D:\#FACULTATE\IP\Proiect-IP\UnitTest\bin\Debug\XML.pdb
+D:\#FACULTATE\IP\Proiect-IP\UnitTest\obj\Debug\UnitTest.csprojAssemblyReference.cache
+D:\#FACULTATE\IP\Proiect-IP\UnitTest\obj\Debug\UnitTest.csproj.CoreCompileInputs.cache
+D:\#FACULTATE\IP\Proiect-IP\UnitTest\obj\Debug\UnitTest.csproj.CopyComplete
+D:\#FACULTATE\IP\Proiect-IP\UnitTest\obj\Debug\UnitTest.dll
+D:\#FACULTATE\IP\Proiect-IP\UnitTest\obj\Debug\UnitTest.pdb

@@ -10,11 +10,14 @@
  **************************************************************************/
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Proiect_IP;
-using Proiect_IP.DatabaseParser;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Interfaces;
+using Modeler;
+using CSV;
+using XML;
+using JSON;
 
 namespace UnitTest
 {
@@ -124,12 +127,12 @@ namespace UnitTest
         [TestMethod]
         public void ParseXML()
         {
-            XMLDatabase xml = new XMLDatabase();
-            List<string> fields = new List<string>();
-            List<Row> records = new List<Row>();
-            xml.Parse(@"C:\Users\Larisa\Desktop\xml-uri\ceva.xml", out fields, out records);
+            //XMLDatabase xml = new XMLDatabase();
+            //List<string> fields = new List<string>();
+            //List<Row> records = new List<Row>();
+            //xml.Parse(@"C:\Users\Larisa\Desktop\xml-uri\ceva.xml", out fields, out records);
 
-            Assert.AreEqual(true, xml.IsXML(@"C:\AN 3\IP\ADAUGA_sSRS_VERSION\Proiect-IP\Proiect-IP\XMLExemplu.xml"));
+            Assert.IsTrue(XML.XMLDatabase.IsXML(@"../../XMLExemplu.xml"));
         }
 
 

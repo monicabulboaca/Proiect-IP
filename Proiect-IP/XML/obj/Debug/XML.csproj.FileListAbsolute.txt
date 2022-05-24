@@ -1,0 +1,9 @@
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\XML\obj\Debug\XML.csproj.CoreCompileInputs.cache
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\XML\bin\Debug\XML.dll
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\XML\bin\Debug\XML.pdb
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\XML\obj\Debug\XML.csprojAssemblyReference.cache
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\XML\obj\Debug\XML.dll
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\XML\obj\Debug\XML.pdb
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\XML\bin\Debug\InterfacesLibrary.dll
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\XML\bin\Debug\InterfacesLibrary.pdb
+D:\#FACULTATE\IP\Proiect-IP\Proiect-IP\XML\obj\Debug\XML.csproj.CopyComplete
