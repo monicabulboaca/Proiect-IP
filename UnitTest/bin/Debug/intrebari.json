@@ -1,0 +1,25 @@
+[
+    {
+        "intrebare": "Mancarea cea mai comuna in Romania este:",
+        "variante": ["Paste", "Salata de vinete", "Calamari", "Mamaliga"],
+        "corect": 3
+    },
+
+    {
+        "intrebare": "Cea mai mare scumpire din 2022 o are alimentul:",
+        "variante": ["Ulei", "Cartof", "Faina", "Iaurt"],
+        "corect": 2
+    },
+
+    {
+        "intrebare": "Daca ati ajunge pe o insula pustie, alimentul cu care ati supravietui cel mai mult ar fi:",
+        "variante": ["Mustar", "Alta varianta", "Miere de albine", "Cocos"],
+        "corect": 2
+    },
+
+    {
+        "intrebare": "Usturoiul este mai sanatos consumat:",
+        "variante": ["Crud", "Copt", "Usturoiul nu este sanatos", "Prajit"],
+        "corect": 0
+    }  
+]

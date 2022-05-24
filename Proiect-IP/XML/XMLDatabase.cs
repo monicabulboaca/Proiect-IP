@@ -36,9 +36,8 @@ namespace XML
             fieldNames = new List<string>();
             records = new List<Row>();
 
-            if (XMLDatabase.IsXML(pathToDatabase))
+            if (IsXML(pathToDatabase))
             {
-
                 XmlReaderSettings settings = new XmlReaderSettings();
                 settings.IgnoreWhitespace = true;
 
@@ -87,7 +86,7 @@ namespace XML
         /// </summary>
         /// <param name="filePath"></param>
         /// <returns></returns>
-        public static bool IsXML(string filePath)
+        public bool IsXML(string filePath)
         {
             //reads the next node from the stream
             XmlTextReader reader = null;
@@ -121,7 +120,14 @@ namespace XML
                 }
                 return true;
             }
-
+            catch (XmlException xmlException)
+            {
+                throw new XmlException("The XML file is not valid!");
+            }
+            catch
+            {
+                throw new Exception("There was a problem with reading the file!");
+            }
             finally
             {
                 if (reader != null)
