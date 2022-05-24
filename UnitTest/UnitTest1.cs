@@ -10,11 +10,13 @@
  **************************************************************************/
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
 using Proiect_IP;
 using Proiect_IP.DatabaseParser;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml;
 
 namespace UnitTest
 {
@@ -31,7 +33,6 @@ namespace UnitTest
             Assert.AreEqual(false, listRows.Contains(row1));
         }
 
-    
         [TestMethod()]
         public void AddDataTestTrue()
         {
@@ -59,6 +60,21 @@ namespace UnitTest
             DB.DeleteData(row1);
 
             Assert.AreEqual(true, !records.Contains(row1));
+        }
+
+        [TestMethod()]
+        public void DeleteDataTestFalse()
+        {
+            List<string> list = new List<string>();
+            List<Row> records = new List<Row>();
+            Row row1 = new Row();
+            row1.Data.Add("data 1");
+
+            DatabaseModeler DB = new DatabaseModeler(list, records);
+            DB.AddData(row1);
+            DB.DeleteData(row1);
+
+            Assert.AreEqual(false, records.Contains(row1));
         }
 
         [TestMethod()]
@@ -95,6 +111,25 @@ namespace UnitTest
         }
 
         [TestMethod]
+        public void GetFieldsTestFalse()
+        {
+            List<string> list = new List<string>();
+            list.Add("data1");
+            list.Add("data2");
+
+            List<string> list2 = new List<string>();
+            list.Add("Ana are mere");
+            list.Add("Miruna are pere");
+
+            List<Row> records = new List<Row>();
+            Row row1 = new Row();
+
+            DatabaseModeler DB = new DatabaseModeler(list, records);
+
+            Assert.AreEqual(false, DB.GetFields().Equals(list2));
+        }
+
+        [TestMethod]
         public void EqualsFalse()
         {
             Row row = new Row();
@@ -109,33 +144,65 @@ namespace UnitTest
         }
 
         [TestMethod]
-        [ExpectedException(typeof(System.IO.FileNotFoundException))]
-
-        public void IsCSV()
+        [ExpectedException(typeof(System.Exception))]
+        public void CSVException()
         {
             CSVDatabase csv = new CSVDatabase() ;
             List<string> fields = new List<string>();
             List<Row> records = new List<Row>();
-            csv.Parse("sksks.txt", out fields, out records);
-
-            Assert.AreEqual(true, csv.IsCSV(@"random.csv"));
+            csv.Parse("random.csv", out fields , out records);
         }
 
         [TestMethod]
-        public void ParseXML()
+        public void IsXMLTrue()
         {
             XMLDatabase xml = new XMLDatabase();
             List<string> fields = new List<string>();
             List<Row> records = new List<Row>();
-            xml.Parse(@"C:\Users\Larisa\Desktop\xml-uri\ceva.xml", out fields, out records);
 
-            Assert.AreEqual(true, xml.IsXML(@"C:\AN 3\IP\ADAUGA_sSRS_VERSION\Proiect-IP\Proiect-IP\XMLExemplu.xml"));
+            Assert.AreEqual(true, xml.IsXML("XMLExemplu.xml"));
+        }
+        
+        [TestMethod]
+        [ExpectedException(typeof(XmlException))]
+        public void XMLException()
+        {
+            XMLDatabase xml = new XMLDatabase();
+            List<string> fields = new List<string>();
+            List<Row> records = new List<Row>();
+
+            xml.IsXML("XMLgresit.xml");
+        }
+        
+        [TestMethod]
+        [ExpectedException(typeof(System.Exception))]
+        public void XMLSystemException()
+        {
+            XMLDatabase xml = new XMLDatabase();
+            List<string> fields = new List<string>();
+            List<Row> records = new List<Row>();
+
+            xml.IsXML("random.ss");
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(System.Exception))]
+        public void JSONException()
+        {
+            JSONDatabase json = new JSONDatabase();
+            List<string> fields = new List<string>();
+            List<Row> records = new List<Row>();
+            json.Parse("sksks.txt", out fields, out records);
+        }
 
-
-
-
-
+        [TestMethod]
+        [ExpectedException(typeof(JsonReaderException))]
+        public void JSONReaderException()
+        {
+            JSONDatabase json = new JSONDatabase();
+            List<string> fields = new List<string>();
+            List<Row> records = new List<Row>();
+            json.Parse("XMLExemplu.xml", out fields, out records);
+        }
     }
 }
