@@ -11,12 +11,15 @@
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
-using Proiect_IP;
-using Proiect_IP.DatabaseParser;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
+using XML;
+using CSV;
+using JSON;
+using Modeler;
+using Interfaces;
 
 namespace UnitTest
 {
@@ -144,7 +147,7 @@ namespace UnitTest
         }
 
         [TestMethod]
-        [ExpectedException(typeof(System.Exception))]
+        [ExpectedException(typeof(System.IO.FileNotFoundException))]
         public void CSVException()
         {
             CSVDatabase csv = new CSVDatabase() ;
